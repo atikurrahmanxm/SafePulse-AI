@@ -121,7 +121,7 @@ export function AssessmentPage() {
     try {
       await downloadPdfReport(
         `/api/assessments/${latest.id}/report.pdf`,
-        `cybershield-assessment-${latest.id}.pdf`
+        `safepulse-assessment-${latest.id}.pdf`
       );
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Failed to download PDF.");

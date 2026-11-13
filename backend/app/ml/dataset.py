@@ -425,7 +425,7 @@ DATASET: List[LabeledSample] = [
         0, "sms", "legit_bank_alert"
     ),
     LabeledSample(
-        "Your domain cybershield-demo.in auto-renewal succeeded for 1 year. Receipt available inside your registrar account control panel.",
+        "Your domain safepulse-demo.in auto-renewal succeeded for 1 year. Receipt available inside your registrar account control panel.",
         0, "email", "legit_billing_receipt"
     ),
     LabeledSample(

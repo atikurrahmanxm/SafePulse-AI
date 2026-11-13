@@ -1,4 +1,4 @@
-"""Governance controls, subscription plans, and future integration catalog for CyberShield AI."""
+"""Governance controls, subscription plans, and future integration catalog for SafePulse AI."""
 
 from __future__ import annotations
 
@@ -154,8 +154,8 @@ DEFAULT_CONTROLS: List[Dict[str, str]] = [
         "control_key": "roadmap_quarterly_drill",
         "title_en": "Run quarterly 15-minute staff phishing drill & incident table-top",
         "title_bn": "প্রতি ৩ মাসে ১৫ মিনিটের ফিশিং ও ইনসিডেন্ট ড্রিল পরিচালনা",
-        "guidance_en": "Use CyberShield AI Training Simulations and Helpline 1930 walkthrough with counter and billing teams.",
-        "guidance_bn": "প্রতি তিন মাসে কর্মীদের নিয়ে CyberShield AI প্রশিক্ষণ ও ১৯৩০ হেল্পলাইন রিহার্সাল করুন।",
+        "guidance_en": "Use SafePulse AI Training Simulations and Helpline 1930 walkthrough with counter and billing teams.",
+        "guidance_bn": "প্রতি তিন মাসে কর্মীদের নিয়ে SafePulse AI প্রশিক্ষণ ও ১৯৩০ হেল্পলাইন রিহার্সাল করুন।",
         "priority": "Medium",
     },
 ]
@@ -174,7 +174,7 @@ INTEGRATION_CATALOG: List[Dict[str, Any]] = [
         "provider_key": "email_imap_monitor",
         "name": "Email Security Monitoring (IMAP / Forwarding)",
         "category": "Email Security",
-        "description": "Integration-ready connector architecture for forwarding suspicious customer/vendor emails into CyberShield AI triage queues (requires OAuth/IMAP gateway setup in production).",
+        "description": "Integration-ready connector architecture for forwarding suspicious customer/vendor emails into SafePulse AI triage queues (requires OAuth/IMAP gateway setup in production).",
         "config_hint": "Target triage mailbox (e.g., security-triage@yourdomain.in)",
         "supports_live_env": False,
     },

@@ -1,9 +1,9 @@
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "/api";
-const TOKEN_KEY = "cybershield_token";
-const BUSINESS_KEY = "cybershield_business_id";
+const TOKEN_KEY = "safepulse_token";
+const BUSINESS_KEY = "safepulse_business_id";
 
 export function getStoredToken(): string | null {
-  return localStorage.getItem(TOKEN_KEY);
+  return localStorage.getItem(TOKEN_KEY) || localStorage.getItem("cybershield_token");
 }
 
 export function setStoredToken(token: string | null): void {
@@ -11,11 +11,12 @@ export function setStoredToken(token: string | null): void {
     localStorage.setItem(TOKEN_KEY, token);
   } else {
     localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem("cybershield_token");
   }
 }
 
 export function getStoredBusinessId(): number | null {
-  const raw = localStorage.getItem(BUSINESS_KEY);
+  const raw = localStorage.getItem(BUSINESS_KEY) || localStorage.getItem("cybershield_business_id");
   if (!raw) return null;
   const parsed = Number(raw);
   return Number.isInteger(parsed) && parsed > 0 ? parsed : null;
@@ -26,6 +27,7 @@ export function setStoredBusinessId(businessId: number | null): void {
     localStorage.setItem(BUSINESS_KEY, String(businessId));
   } else {
     localStorage.removeItem(BUSINESS_KEY);
+    localStorage.removeItem("cybershield_business_id");
   }
 }
 

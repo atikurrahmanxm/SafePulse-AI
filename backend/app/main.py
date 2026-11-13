@@ -1,4 +1,4 @@
-"""FastAPI application entry point for CyberShield AI."""
+"""FastAPI application entry point for SafePulse AI."""
 
 from __future__ import annotations
 
@@ -38,7 +38,7 @@ async def lifespan(_app: FastAPI):
 
 
 app = FastAPI(
-    title="CyberShield AI API",
+    title="SafePulse AI API",
     description="AI-Powered Small Business Cybersecurity Platform — AdtU Innovation Mela 2026",
     version="1.0.0",
     lifespan=lifespan,

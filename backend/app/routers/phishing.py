@@ -130,6 +130,6 @@ def download_phishing_report(
     return Response(
         content=pdf_bytes,
         media_type="application/pdf",
-        headers={"Content-Disposition": f'attachment; filename="cybershield-phishing-{record.id}.pdf"'},
+        headers={"Content-Disposition": f'attachment; filename="safepulse-phishing-{record.id}.pdf"'},
     )
 

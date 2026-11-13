@@ -14,7 +14,7 @@ from app.security import rate_limiter
 
 @pytest.fixture(scope="function")
 def client(tmp_path):
-    db_file = tmp_path / "test_cybershield.db"
+    db_file = tmp_path / "test_safepulse.db"
     engine = create_engine(f"sqlite:///{db_file.as_posix()}", connect_args={"check_same_thread": False})
     TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
     Base.metadata.create_all(bind=engine)

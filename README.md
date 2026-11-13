@@ -1,10 +1,10 @@
-# CyberShield AI
+# SafePulse AI
 
 **Smart Cybersecurity. Simple Protection. Safer Businesses.**  
 *AdtU Innovation Mela 2026 — Assam down town University (AdtU), India*  
 *Problem Statement: Small Business Cybersecurity Platform*
 
-CyberShield AI is an AI-powered, bilingual (English & Bengali) cybersecurity SaaS platform built specifically for small businesses, local retail shops, pharmacies, clinics, startups, and SMEs. It combines an explainable machine-learning phishing detector, an SSRF-safe URL & DNS security analyzer, a CERT-In MSME aligned 10-domain business health assessment, a 6-phase interactive incident response center, employee cyber awareness training, and downloadable PDF reporting.
+SafePulse AI is an AI-powered, bilingual (English & Bengali) cybersecurity SaaS platform built specifically for small businesses, local retail shops, pharmacies, clinics, startups, and SMEs. It combines an explainable machine-learning phishing detector, an SSRF-safe URL & DNS security analyzer, a CERT-In MSME aligned 10-domain business health assessment, a 6-phase interactive incident response center, employee cyber awareness training, and downloadable PDF reporting.
 
 ---
 
@@ -28,26 +28,26 @@ CyberShield AI is an AI-powered, bilingual (English & Bengali) cybersecurity Saa
 ### 1. Backend Setup (FastAPI + SQLite + Scikit-learn)
 
 ```bash
-cd CyberShield-AI/backend
+cd backend
 cp .env.example .env
 pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000
 ```
 
-- FastAPI automatically initializes the SQLite schema (`cybershield.db`), trains and evaluates the phishing ML model on startup (saving artifacts to `backend/artifacts/`), and seeds the awareness quizzes.
+- FastAPI automatically initializes the SQLite schema (`safepulse.db`), trains and evaluates the phishing ML model on startup (saving artifacts to `backend/artifacts/`), and seeds the awareness quizzes.
 - Interactive Swagger API docs are available at `http://127.0.0.1:8000/docs`.
 
 ### 2. Frontend Setup (React + TypeScript + Vite + Tailwind)
 
 ```bash
-cd CyberShield-AI/frontend
+cd frontend
 cp .env.example .env
 npm install
 npm run dev
 ```
 
 - Open `http://localhost:5173`. Vite proxies `/api/*` requests directly to `http://127.0.0.1:8000`.
-- Click **"Launch Hackathon Demo Mode"** on the landing or login page to explore the pre-populated demo pharmacy workspace without registering.
+- Click **"Launch Interactive Demo"** on the landing or login page to explore the pre-populated demo pharmacy workspace without registering.
 
 ---
 
@@ -55,13 +55,13 @@ npm run dev
 
 ### Backend Tests (`pytest`)
 ```bash
-cd CyberShield-AI/backend
+cd backend
 python -m pytest -v
 ```
 
 ### Frontend Tests (`vitest`) & Production Build
 ```bash
-cd CyberShield-AI/frontend
+cd frontend
 npm run build
 npm test
 ```
@@ -74,14 +74,14 @@ npm test
 Set `DATABASE_URL` in your backend environment to a managed PostgreSQL connection string (e.g., `postgresql+psycopg://...` or `postgresql://...`). All 11 SQLAlchemy models are PostgreSQL-compatible.
 
 ### Backend (Render / Railway / Fly.io)
-- Root directory: `CyberShield-AI/backend`
+- Root directory: `backend`
 - Build command: `pip install -r requirements.txt`
 - Start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
 - Required env vars: `ENVIRONMENT=production`, `DATABASE_URL`, `JWT_SECRET_KEY` (64+ random chars), `CORS_ORIGINS=https://your-frontend.vercel.app`
 - Optional env vars: `GOOGLE_SAFE_BROWSING_API_KEY` (if omitted, the local engine runs with full functionality).
 
 ### Frontend (Vercel)
-- Root directory: `CyberShield-AI/frontend`
+- Root directory: `frontend`
 - Build command: `npm run build`
 - Output directory: `dist`
 - Env var: `VITE_API_BASE_URL=https://your-backend-service.onrender.com/api`

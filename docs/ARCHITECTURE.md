@@ -1,4 +1,4 @@
-# CyberShield AI — System Architecture
+# SafePulse AI — System Architecture
 
 ## Architecture Diagram
 
@@ -7,7 +7,7 @@ flowchart LR
     U["SME Owner / Staff Browser"] --> FE["React + TypeScript + Vite Frontend\n(Tailwind CSS, Recharts, EN/BN i18n)"]
     FE -->|"/api/* JSON + JWT"| API["FastAPI Backend\n(Pydantic v2 + Rate Limiter + Argon2/JWT)"]
 
-    subgraph CoreModules["CyberShield AI Engines"]
+    subgraph CoreModules["SafePulse AI Engines"]
         ML["AI Phishing Engine\n(TF-IDF + Logistic Regression + Heuristics)"]
         URL["SSRF-Safe URL Analyzer\n(IP/Scheme Blocker + Lexical + DNS SPF/DMARC)"]
         ASSESS["Business Health Engine\n(10 CERT-In MSME Controls)"]

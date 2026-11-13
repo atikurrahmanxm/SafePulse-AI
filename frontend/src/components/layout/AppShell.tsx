@@ -165,7 +165,7 @@ export function AppShell() {
     ) || navItems[0];
 
   useEffect(() => {
-    document.title = `${currentNav.label} | CyberShield AI`;
+    document.title = `${currentNav.label} | SafePulse AI`;
     setMobileOpen(false);
   }, [location.pathname, currentNav.label]);
 
@@ -262,7 +262,7 @@ export function AppShell() {
             type="button"
             onClick={() => navigate("/app")}
             className="text-left focus-visible:rounded-lg"
-            aria-label="CyberShield AI Home"
+            aria-label="SafePulse AI Home"
           >
             <Logo compact={collapsed} />
           </button>

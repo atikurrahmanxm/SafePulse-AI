@@ -176,7 +176,7 @@ def logout(request: Request, ctx=Depends(get_current_business), db: Session = De
         action="user.logged_out",
         resource_type="user",
         resource_id=str(user.id),
-        summary="User signed out of CyberShield AI.",
+        summary="User signed out of SafePulse AI.",
         user_id=user.id,
         business_id=business.id,
         request=request,

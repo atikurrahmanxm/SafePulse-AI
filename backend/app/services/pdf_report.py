@@ -38,7 +38,7 @@ def _build_pdf(
         rightMargin=18 * mm,
         topMargin=18 * mm,
         bottomMargin=18 * mm,
-        title=f"CyberShield AI - {report_title}",
+        title=f"SafePulse AI - {report_title}",
     )
 
     styles = getSampleStyleSheet()
@@ -83,7 +83,7 @@ def _build_pdf(
     )
 
     story: List[Any] = [
-        Paragraph("CyberShield AI — Small Business Security Report", subtitle_style),
+        Paragraph("SafePulse AI — Small Business Security Report", subtitle_style),
         Paragraph(escape(report_title), title_style),
         Paragraph(
             f"Business: <b>{escape(business_name)}</b> &nbsp;|&nbsp; Generated: {escape(generated_at)}",
@@ -143,7 +143,7 @@ def generate_phishing_pdf(record: Any, business_name: str) -> bytes:
         {"heading": "Recommended Security Actions", "items": record.recommendations or []},
     ]
     limitation = (
-        "Risk scores (0-24 Low, 25-49 Moderate, 50-74 High, 75-100 Critical) are CyberShield AI application thresholds. "
+        "Risk scores (0-24 Low, 25-49 Moderate, 50-74 High, 75-100 Critical) are SafePulse AI application thresholds. "
         "Automated ML/heuristic detection assists triage and does not replace human verification with banks or vendors."
     )
     return _build_pdf(
@@ -177,7 +177,7 @@ def generate_url_pdf(record: Any, business_name: str) -> bytes:
         {"heading": "Security Recommendations", "items": record.recommendations or []},
     ]
     limitation = (
-        "CyberShield AI never fetches, renders, or executes submitted URLs to prevent SSRF and malware exposure. "
+        "SafePulse AI never fetches, renders, or executes submitted URLs to prevent SSRF and malware exposure. "
         "Low risk means no local red flags were detected; it does not certify a website as safe."
     )
     return _build_pdf(
@@ -246,7 +246,7 @@ def generate_incident_pdf(record: Any, business_name: str) -> bytes:
         {"heading": "Evidence & Activity Timeline", "items": timeline_lines or ["No manual timeline notes added yet."]},
     ]
     limitation = (
-        "CyberShield AI provides structured response guidance only. It cannot independently remove malware, freeze bank transfers, recover hacked accounts, or guarantee incident resolution."
+        "SafePulse AI provides structured response guidance only. It cannot independently remove malware, freeze bank transfers, recover hacked accounts, or guarantee incident resolution."
     )
     return _build_pdf(
         f"Incident Response Checklist (#{record.id})",
@@ -284,7 +284,7 @@ def generate_monthly_security_pdf(report_data: Dict[str, Any], business_name: st
         },
     ]
     limitation = (
-        "This monthly executive summary reflects scans, assessments, incident checklists, and manually verified governance controls stored inside CyberShield AI. "
+        "This monthly executive summary reflects scans, assessments, incident checklists, and manually verified governance controls stored inside SafePulse AI. "
         "It does not represent automated live endpoint EDR telemetry unless external integrations are explicitly connected."
     )
     return _build_pdf(

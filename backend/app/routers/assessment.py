@@ -134,6 +134,6 @@ def download_assessment_report(
     return Response(
         content=pdf_bytes,
         media_type="application/pdf",
-        headers={"Content-Disposition": f'attachment; filename="cybershield-assessment-{record.id}.pdf"'},
+        headers={"Content-Disposition": f'attachment; filename="safepulse-assessment-{record.id}.pdf"'},
     )
 

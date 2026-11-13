@@ -1,2 +1,2 @@
-"""CyberShield AI backend package."""
+"""SafePulse AI backend package."""
 

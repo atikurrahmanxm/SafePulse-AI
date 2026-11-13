@@ -70,7 +70,7 @@ export function AuthPage({ mode }: { mode: "login" | "register" }) {
         aria-hidden="true"
       />
       <div className="relative mb-6">
-        <Link to="/" aria-label="Back to CyberShield AI landing page">
+        <Link to="/" aria-label="Back to SafePulse AI landing page">
           <Logo size="lg" />
         </Link>
       </div>
@@ -78,7 +78,7 @@ export function AuthPage({ mode }: { mode: "login" | "register" }) {
       <Card className="relative w-full max-w-md border-slate-700/70 shadow-2xl shadow-indigo-950/40">
         <CardContent className="p-6 sm:p-7">
           <h1 className="text-xl font-bold text-slate-50">
-            {mode === "login" ? "Sign in to CyberShield AI" : "Create your Business Security Account"}
+            {mode === "login" ? "Sign in to SafePulse AI" : "Create your Business Security Account"}
           </h1>
           <p className="mt-1 text-xs text-slate-400">
             {mode === "login"
@@ -248,7 +248,7 @@ export function AuthPage({ mode }: { mode: "login" | "register" }) {
           <div className="mt-5 text-center text-xs text-slate-400">
             {mode === "login" ? (
               <>
-                New to CyberShield AI?{" "}
+                New to SafePulse AI?{" "}
                 <Link to="/register" className="font-semibold text-[#06B6D4] hover:underline">
                   Create an account
                 </Link>

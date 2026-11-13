@@ -135,7 +135,7 @@ export function DocsPage() {
           <p className="flex items-start gap-2">
             <BookOpen className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#06B6D4]" aria-hidden="true" />
             <span>
-              <strong>Risk Bands (0–24 Low, 25–49 Moderate, 50–74 High, 75–100 Critical):</strong> These are CyberShield AI application triage thresholds, not universal security certifications.
+              <strong>Risk Bands (0–24 Low, 25–49 Moderate, 50–74 High, 75–100 Critical):</strong> These are SafePulse AI application triage thresholds, not universal security certifications.
             </span>
           </p>
           <p className="flex items-start gap-2">

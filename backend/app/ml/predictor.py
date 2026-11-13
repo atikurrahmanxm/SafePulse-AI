@@ -281,7 +281,7 @@ def _build_recommendations(
         if "suspicious_payment_or_upi_scam" in categories:
             recs.append("Freeze any pending bank transfer with your accounts team until out-of-band voice verification is completed.")
         recs.append(
-            "If anyone in your business already clicked or shared credentials, immediately open the CyberShield Incident Response Center and report financial fraud on India helpline 1930 / cybercrime.gov.in."
+            "If anyone in your business already clicked or shared credentials, immediately open the SafePulse Incident Response Center and report financial fraud on India helpline 1930 / cybercrime.gov.in."
         )
         return recs
 

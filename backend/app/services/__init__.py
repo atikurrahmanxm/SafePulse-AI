@@ -1,2 +1,2 @@
-"""CyberShield AI domain services."""
+"""SafePulse AI domain services."""
 

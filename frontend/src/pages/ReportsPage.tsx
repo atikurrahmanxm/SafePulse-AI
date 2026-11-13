@@ -260,7 +260,7 @@ export function ReportsPage() {
               void handleDownload(
                 "monthly",
                 `/api/reports/monthly.pdf?language=${language}`,
-                `cybershield-monthly-report-${language}.pdf`,
+                `safepulse-monthly-report-${language}.pdf`,
                 isBn ? "মাসিক নিরাপত্তা রিপোর্ট" : "Monthly Security Report"
               )
             }
@@ -331,7 +331,7 @@ export function ReportsPage() {
                 void handleDownload(
                   "monthly-hero",
                   `/api/reports/monthly.pdf?language=${language}`,
-                  `cybershield-monthly-report-${language}.pdf`,
+                  `safepulse-monthly-report-${language}.pdf`,
                   isBn ? "মাসিক নিরাপত্তা রিপোর্ট" : "Monthly Security Report"
                 )
               }

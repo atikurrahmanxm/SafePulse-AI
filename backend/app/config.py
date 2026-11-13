@@ -20,15 +20,15 @@ def _split_csv(value: str) -> List[str]:
 
 @dataclass(frozen=True)
 class Settings:
-    app_name: str = os.getenv("APP_NAME", "CyberShield AI")
+    app_name: str = os.getenv("APP_NAME", "SafePulse AI")
     environment: str = os.getenv("ENVIRONMENT", "development")
-    database_url: str = os.getenv("DATABASE_URL", f"sqlite:///{(BASE_DIR / 'cybershield.db').as_posix()}")
+    database_url: str = os.getenv("DATABASE_URL", f"sqlite:///{(BASE_DIR / 'safepulse.db').as_posix()}")
     jwt_secret_key: str = os.getenv(
         "JWT_SECRET_KEY",
         # Deterministic dev fallback only when not in production; override via env in prod.
-        "cybershield-dev-secret-override-in-production-" + secrets.token_hex(8)
+        "safepulse-dev-secret-override-in-production-" + secrets.token_hex(8)
         if os.getenv("ENVIRONMENT") == "production"
-        else "cybershield-ai-local-dev-secret-key-2026-adtu",
+        else "safepulse-ai-local-dev-secret-key-2026-adtu",
     )
     jwt_algorithm: str = os.getenv("JWT_ALGORITHM", "HS256")
     jwt_expire_minutes: int = int(os.getenv("JWT_EXPIRE_MINUTES", "720"))

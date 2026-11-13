@@ -132,7 +132,7 @@ export function UrlScannerPage() {
     try {
       await downloadPdfReport(
         `/api/urls/${result.id}/report.pdf`,
-        `cybershield-url-${result.id}.pdf`
+        `safepulse-url-${result.id}.pdf`
       );
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Could not download PDF report.");

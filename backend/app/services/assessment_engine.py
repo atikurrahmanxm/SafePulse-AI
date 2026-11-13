@@ -149,7 +149,7 @@ ASSESSMENT_QUESTIONS: List[AssessmentQuestion] = [
         prompt_bn="সাইবার প্রতারণা বা সন্দেহজনক কিছু হলে করণীয় চেকলিস্ট (ব্যাংক ফ্রড নম্বর, হেল্পলাইন ১৯৩০) কি আপনার টিমের জানা আছে?",
         guidance_en="CERT-In MSME Guidance: Rapid reporting within the 'golden hour' greatly improves financial fraud recovery.",
         guidance_bn="প্রতারণার প্রথম ঘণ্টার মধ্যে ১৯৩০ নম্বরে জানালে টাকা ফেরত পাওয়ার সম্ভাবনা অনেক বাড়ে।",
-        recommendation_en="Keep CyberShield Incident Playbooks accessible to all staff and post bank freeze + 1930 helpline contacts at the counter.",
+        recommendation_en="Keep SafePulse Incident Playbooks accessible to all staff and post bank freeze + 1930 helpline contacts at the counter.",
         recommendation_bn="সব কর্মীকে ১৯৩০ হেল্পলাইন ও ব্যাংকের জরুরি ফ্রড নম্বরের তালিকা দিন এবং ইনসিডেন্ট চেকলিস্ট অনুশীলন করুন।",
     ),
 ]

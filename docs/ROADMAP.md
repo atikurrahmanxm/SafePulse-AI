@@ -1,4 +1,4 @@
-# CyberShield AI — Future Development Roadmap
+# SafePulse AI — Future Development Roadmap
 
 ## Phase 1 (Completed — Hackathon MVP)
 - Bilingual (English & Bengali) React + FastAPI + SQLite/PostgreSQL SaaS platform

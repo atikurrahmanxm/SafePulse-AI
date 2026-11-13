@@ -1,4 +1,4 @@
-# CyberShield AI — REST API Documentation
+# SafePulse AI — REST API Documentation
 
 Base URL (local dev): `http://127.0.0.1:8000`  
 Interactive OpenAPI / Swagger UI: `http://127.0.0.1:8000/docs`

@@ -132,6 +132,6 @@ def download_url_report(
     return Response(
         content=pdf_bytes,
         media_type="application/pdf",
-        headers={"Content-Disposition": f'attachment; filename="cybershield-url-{record.id}.pdf"'},
+        headers={"Content-Disposition": f'attachment; filename="safepulse-url-{record.id}.pdf"'},
     )
 

@@ -180,7 +180,7 @@ def train_and_evaluate(force: bool = False) -> Tuple[Pipeline, Dict[str, Any]]:
         "limitations": [
             "Trained on a curated SME corpus rather than live enterprise mail telemetry; novel zero-day templates or non-English scripts outside training patterns may score lower.",
             "Short, ambiguous messages (< 15 words) have lower statistical confidence and rely more heavily on transparent heuristic verification.",
-            "Risk bands (0-24 Low, 25-49 Moderate, 50-74 High, 75-100 Critical) are CyberShield AI application thresholds, not universal industry standards.",
+            "Risk bands (0-24 Low, 25-49 Moderate, 50-74 High, 75-100 Critical) are SafePulse AI application thresholds, not universal industry standards.",
         ],
     }
 

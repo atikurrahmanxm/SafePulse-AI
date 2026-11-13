@@ -205,7 +205,7 @@ def _check_optional_safe_browsing(url: str) -> Optional[Dict[str, Any]]:
         return None
     endpoint = f"https://safebrowsing.googleapis.com/v4/threatMatches:find?key={api_key}"
     payload = {
-        "client": {"clientId": "cybershield-ai", "clientVersion": "1.0.0"},
+        "client": {"clientId": "safepulse-ai", "clientVersion": "1.0.0"},
         "threatInfo": {
             "threatTypes": ["MALWARE", "SOCIAL_ENGINEERING", "UNWANTED_SOFTWARE"],
             "platformTypes": ["ANY_PLATFORM"],
@@ -253,7 +253,7 @@ def analyze_url(raw_url: str, language: str = "en") -> Dict[str, Any]:
     # SSRF Protection: block localhost, internal domains, and private/loopback/metadata IPs
     if host in PRIVATE_HOSTNAMES or host.endswith(PRIVATE_SUFFIXES):
         raise SSRFBlockedError(
-            f"SSRF protection blocked internal/localhost hostname '{host}'. CyberShield AI only analyzes public web addresses."
+            f"SSRF protection blocked internal/localhost hostname '{host}'. SafePulse AI only analyzes public web addresses."
         )
 
     is_ip_literal = False
@@ -396,7 +396,7 @@ def analyze_url(raw_url: str, language: str = "en") -> Dict[str, Any]:
             "URL Shortener Hides Final Destination",
             "শর্টনার লিঙ্ক আসল গন্তব্য গোপন করছে",
             "high",
-            "Shortened links conceal the true destination domain and bypass quick visual inspection. CyberShield AI does not follow redirects to protect the server.",
+            "Shortened links conceal the true destination domain and bypass quick visual inspection. SafePulse AI does not follow redirects to protect the server.",
             "লিঙ্ক শর্টনার আসল ওয়েবসাইটের ঠিকানা লুকিয়ে রাখে; নিরাপত্তার জন্য সার্ভার এই লিঙ্ক অনুসরণ করে না।",
             22,
         )
@@ -531,7 +531,7 @@ def analyze_url(raw_url: str, language: str = "en") -> Dict[str, Any]:
         else:
             explanation = (
                 f"'{host}' URL-টিতে একাধিক ঝুঁকিপূর্ণ সংকেত শনাক্ত হয়েছে (স্কোর {risk_score}/100)। "
-                "সার্ভার সুরক্ষার (SSRF প্রতিরোধ) জন্য CyberShield AI এই ওয়েবসাইটটি কখনোই ওপেন বা ডাউনলোড করে না।"
+                "সার্ভার সুরক্ষার (SSRF প্রতিরোধ) জন্য SafePulse AI এই ওয়েবসাইটটি কখনোই ওপেন বা ডাউনলোড করে না।"
             )
         recs = [
             "সন্দেহজনক লিঙ্কে কখনোই ব্যাংকিং পাসওয়ার্ড, OTP বা কার্ডের তথ্য দেবেন না।",
@@ -543,13 +543,13 @@ def analyze_url(raw_url: str, language: str = "en") -> Dict[str, Any]:
             explanation = (
                 f"Static URL and DNS inspection for '{host}' found no high-risk phishing indicators. "
                 "Important: 'Low Risk' means no local red flags were detected — NOT a guarantee that the site is safe "
-                "(unknown vs. verified safe). CyberShield AI never fetches or executes submitted URLs to prevent SSRF."
+                "(unknown vs. verified safe). SafePulse AI never fetches or executes submitted URLs to prevent SSRF."
             )
         else:
             explanation = (
                 f"Static URL and DNS inspection for '{host}' detected {len([i for i in indicators if i['score_impact'] > 0])} "
                 f"risk indicator(s) yielding a score of {risk_score}/100 ({risk_category}). "
-                "To prevent SSRF and malware exposure, CyberShield AI never visits, downloads, or executes the target URL."
+                "To prevent SSRF and malware exposure, SafePulse AI never visits, downloads, or executes the target URL."
             )
         recs = [
             "Do not enter passwords, OTPs, UPI PINs, or payment details on unverified domains.",
@@ -558,7 +558,7 @@ def analyze_url(raw_url: str, language: str = "en") -> Dict[str, Any]:
         ]
         if not settings.google_safe_browsing_api_key:
             recs.append(
-                "Note: External threat-intelligence API keys are not configured, so analysis relies on CyberShield AI's local heuristic and DNS engine."
+                "Note: External threat-intelligence API keys are not configured, so analysis relies on SafePulse AI's local heuristic and DNS engine."
             )
 
     return {

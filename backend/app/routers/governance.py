@@ -463,6 +463,6 @@ def download_monthly_security_report(
     return Response(
         content=pdf_bytes,
         media_type="application/pdf",
-        headers={"Content-Disposition": f'attachment; filename="cybershield-monthly-report-{business.id}.pdf"'},
+        headers={"Content-Disposition": f'attachment; filename="safepulse-monthly-report-{business.id}.pdf"'},
     )
 

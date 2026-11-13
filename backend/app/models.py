@@ -1,4 +1,4 @@
-"""Relational database models for CyberShield AI (SQLite & PostgreSQL compatible)."""
+"""Relational database models for SafePulse AI (SQLite & PostgreSQL compatible)."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-# CyberShield AI — Hackathon Live Demo Script (AdtU Innovation Mela 2026)
+# SafePulse AI — Hackathon Live Demo Script (AdtU Innovation Mela 2026)
 
 **Estimated Live Demo Duration:** 4–5 minutes  
 **Note:** All demo scenarios are clearly labeled as demonstration data.
@@ -31,5 +31,5 @@
 
 ## Scenario 4: Employee Clicks a Phishing Link (45 sec)
 1. Navigate to **Incident Response Center**.
-2. Open the active **Phishing Link Clicked** playbook (or start a new one) and check off containment items to show live progress tracking and India Helpline **1930** guidance, plus the honest disclaimer that CyberShield AI guides humans rather than claiming automatic malware removal.
+2. Open the active **Phishing Link Clicked** playbook (or start a new one) and check off containment items to show live progress tracking and India Helpline **1930** guidance, plus the honest disclaimer that SafePulse AI guides humans rather than claiming automatic malware removal.
 

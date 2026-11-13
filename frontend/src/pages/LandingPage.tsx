@@ -22,15 +22,15 @@ import { Button, Card } from "../components/ui/Primitives";
 
 const FAQS = [
   {
-    q_en: "Can CyberShield AI run without paid external threat APIs?",
-    q_bn: "কোনো পেইড বাহ্যিক API ছাড়া কি CyberShield AI কাজ করে?",
+    q_en: "Can SafePulse AI run without paid external threat APIs?",
+    q_bn: "কোনো পেইড বাহ্যিক API ছাড়া কি SafePulse AI কাজ করে?",
     a_en: "Yes. The phishing classifier, heuristic rules, SSRF-safe URL & DNS inspector, security assessment, incident playbooks, and PDF reporting all work completely locally.",
     a_bn: "হ্যাঁ। ফিশিং ML মডেল, হিউরিস্টিক নিয়ম, URL ও DNS বিশ্লেষক, বিজনেস সিকিউরিটি চেক এবং ইনসিডেন্ট প্লেবুক সম্পূর্ণ স্থানীয়ভাবে কাজ করে।",
   },
   {
     q_en: "Does the URL scanner open or visit suspicious websites?",
     q_bn: "URL স্ক্যানার কি সন্দেহজনক ওয়েবসাইটগুলো ওপেন করে?",
-    a_en: "No. To protect against SSRF and malware exposure, CyberShield AI never fetches or renders submitted URLs. It runs static inspection and read-only DNS checks while blocking localhost and private IP ranges.",
+    a_en: "No. To protect against SSRF and malware exposure, SafePulse AI never fetches or renders submitted URLs. It runs static inspection and read-only DNS checks while blocking localhost and private IP ranges.",
     a_bn: "না। নিরাপত্তার জন্য এটি কখনোই জমা দেওয়া URL ওপেন বা ডাউনলোড করে না। এটি কেবল স্ট্যাটিক লিঙ্ক বিশ্লেষণ ও নিরাপদ DNS যাচাই করে এবং লোকালহোস্ট বা প্রাইভেট IP ব্লক করে।",
   },
   {
@@ -40,8 +40,8 @@ const FAQS = [
     a_bn: "না। HTTPS শুধু তথ্য এনক্রিপ্ট করে; প্রতারকরাও ফ্রি HTTPS নিতে পারে। তাই মূল ডোমেইন নাম যাচাই করা জরুরি।",
   },
   {
-    q_en: "Can CyberShield AI automatically remove ransomware or recover hacked accounts?",
-    q_bn: "CyberShield AI কি নিজে থেকে র‍্যানসমওয়্যার সরাতে বা হ্যাক হওয়া অ্যাকাউন্ট উদ্ধার করতে পারে?",
+    q_en: "Can SafePulse AI automatically remove ransomware or recover hacked accounts?",
+    q_bn: "SafePulse AI কি নিজে থেকে র‍্যানসমওয়্যার সরাতে বা হ্যাক হওয়া অ্যাকাউন্ট উদ্ধার করতে পারে?",
     a_en: "No. Our Incident Response Center gives non-technical owners clear containment checklists and India 1930 helpline reporting steps, while highlighting when IT support or your bank must act.",
     a_bn: "না। এটি আপনাকে ধাপে ধাপে করণীয় এবং ১৯৩০ হেল্পলাইনে রিপোর্ট করার নির্দেশনা দেয়, তবে সরাসরি ম্যালওয়্যার সরাতে বা ব্যাংক অ্যাকাউন্ট ফেরত আনতে পারে না।",
   },
@@ -491,7 +491,7 @@ export function LandingPage() {
               <h2 className="text-xl font-bold text-white sm:text-2xl">
                 {isBn
                   ? "এখনই আপনার ব্যবসার নিরাপত্তা যাচাই করে দেখুন"
-                  : "Ready to see CyberShield AI in action?"}
+                  : "Ready to see SafePulse AI in action?"}
               </h2>
               <p className="mt-1.5 text-sm text-slate-300">
                 {isBn

@@ -29,6 +29,8 @@ frontend/.vite/
 *.db-shm
 cybershield.db
 backend/cybershield.db
+safepulse.db
+backend/safepulse.db
 
 # Environment variables & secrets
 .env

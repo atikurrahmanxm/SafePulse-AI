@@ -234,7 +234,7 @@ export function PhishingDetectorPage() {
     try {
       await downloadPdfReport(
         `/api/phishing/${result.id}/report.pdf`,
-        `cybershield-phishing-${result.id}.pdf`
+        `safepulse-phishing-${result.id}.pdf`
       );
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Could not download PDF report.");

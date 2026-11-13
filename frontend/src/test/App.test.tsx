@@ -15,7 +15,7 @@ function renderApp(initialRoute = "/") {
   );
 }
 
-describe("CyberShield AI Frontend", () => {
+describe("SafePulse AI Frontend", () => {
   beforeEach(() => {
     localStorage.clear();
     vi.restoreAllMocks();
@@ -58,7 +58,7 @@ describe("CyberShield AI Frontend", () => {
 
   it("loads authenticated phishing detector, submits message, and renders risk score + highlights", async () => {
     const user = userEvent.setup();
-    localStorage.setItem("cybershield_token", "test-jwt");
+    localStorage.setItem("safepulse_token", "test-jwt");
 
     vi.spyOn(globalThis, "fetch").mockImplementation(async (input) => {
       const url = typeof input === "string" ? input : input instanceof URL ? input.toString() : input.url;
@@ -140,7 +140,7 @@ describe("CyberShield AI Frontend", () => {
 
   it("displays SSRF error banner when URL scanner rejects localhost", async () => {
     const user = userEvent.setup();
-    localStorage.setItem("cybershield_token", "test-jwt");
+    localStorage.setItem("safepulse_token", "test-jwt");
 
     vi.spyOn(globalThis, "fetch").mockImplementation(async (input) => {
       const url = typeof input === "string" ? input : input instanceof URL ? input.toString() : input.url;
@@ -201,7 +201,7 @@ describe("CyberShield AI Frontend", () => {
 
   it("opens an incident playbook, shows India 1930 escalation, and toggles checklist progress", async () => {
     const user = userEvent.setup();
-    localStorage.setItem("cybershield_token", "test-jwt");
+    localStorage.setItem("safepulse_token", "test-jwt");
 
     const baseIncident = {
       id: 7,
@@ -316,7 +316,7 @@ describe("CyberShield AI Frontend", () => {
 
   it("renders governance team MFA directory and toggles control checklists", async () => {
     const user = userEvent.setup();
-    localStorage.setItem("cybershield_token", "test-jwt");
+    localStorage.setItem("safepulse_token", "test-jwt");
 
     let memberMfa = false;
     vi.spyOn(globalThis, "fetch").mockImplementation(async (input, init) => {
@@ -426,7 +426,7 @@ describe("CyberShield AI Frontend", () => {
 
   it("renders Easy Security Reports Center with 5 report cards and triggers 1-click monthly PDF download", async () => {
     const user = userEvent.setup();
-    localStorage.setItem("cybershield_token", "test-jwt");
+    localStorage.setItem("safepulse_token", "test-jwt");
 
     const createObjectUrlSpy = vi.fn().mockReturnValue("blob:monthly");
     const revokeObjectUrlSpy = vi.fn();

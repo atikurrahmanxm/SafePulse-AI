@@ -1,4 +1,3 @@
-"""Seed realistic, clearly labeled Demo Mode data and Awareness quizzes."""
 
 from __future__ import annotations
 
@@ -25,7 +24,7 @@ from .governance_engine import DEFAULT_CONTROLS
 from .incident_engine import get_scenario_steps
 
 
-DEMO_EMAIL = "demo@cybershieldai.org"
+DEMO_EMAIL = "demo@safepulseai.org"
 
 HACKATHON_SAMPLE_MESSAGES = [
     {

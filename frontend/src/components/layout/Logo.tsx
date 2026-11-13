@@ -9,9 +9,9 @@ export function Logo({
   size?: "sm" | "md" | "lg";
 }) {
   const uid = useId().replace(/:/g, "");
-  const bgId = `cs-bg-${uid}`;
-  const shieldId = `cs-shield-${uid}`;
-  const checkId = `cs-check-${uid}`;
+  const bgId = `sp-bg-${uid}`;
+  const shieldId = `sp-shield-${uid}`;
+  const pulseId = `sp-pulse-${uid}`;
 
   const boxSizes = {
     sm: "h-8 w-8 rounded-lg",
@@ -50,11 +50,13 @@ export function Logo({
               <stop offset="55%" stopColor="#06B6D4" />
               <stop offset="100%" stopColor="#34D399" />
             </linearGradient>
-            <linearGradient id={checkId} x1="23" y1="32" x2="42" y2="25" gradientUnits="userSpaceOnUse">
+            <linearGradient id={pulseId} x1="17" y1="33" x2="47" y2="33" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stopColor="#38BDF8" />
+              <stop offset="60%" stopColor="#22D3EE" />
               <stop offset="100%" stopColor="#34D399" />
             </linearGradient>
           </defs>
+          {/* Shield Base */}
           <path
             d="M32 7L12 15.5V31C12 43.5 20.6 53.5 32 57C43.4 53.5 52 43.5 52 31V15.5L32 7Z"
             fill={`url(#${bgId})`}
@@ -62,21 +64,24 @@ export function Logo({
             strokeWidth="3.5"
             strokeLinejoin="round"
           />
+          {/* Upper Radar/Signal Arc */}
           <path
-            d="M22 22C24.8 19.6 28.3 18.4 32 18.4C35.7 18.4 39.2 19.6 42 22"
+            d="M23 21C25.8 19 28.8 18 32 18C35.2 18 38.2 19 41 21"
             stroke="#818CF8"
-            strokeOpacity="0.6"
-            strokeWidth="2.4"
+            strokeOpacity="0.7"
+            strokeWidth="2.2"
             strokeLinecap="round"
           />
+          {/* Dynamic Heartbeat / SafePulse Wave */}
           <path
-            d="M22.5 32.5L29 39L42 25.5"
-            stroke={`url(#${checkId})`}
-            strokeWidth="4.2"
+            d="M19 33.5H25L28.5 25L32.5 41L36 30L38.5 35H45"
+            stroke={`url(#${pulseId})`}
+            strokeWidth="3.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <circle cx="32" cy="14.5" r="2.2" fill="#22D3EE" />
+          <circle cx="32" cy="13.5" r="2.2" fill="#22D3EE" />
+          <circle cx="45" cy="35" r="1.8" fill="#34D399" />
         </svg>
       </div>
       {!compact && (
@@ -87,7 +92,7 @@ export function Logo({
               size === "lg" ? "text-lg" : "text-sm"
             )}
           >
-            <span>CyberShield</span>
+            <span>SafePulse</span>
             <span className="rounded-md border border-cyan-400/35 bg-cyan-400/15 px-1.5 py-0.5 text-[11px] font-bold tracking-wide text-cyan-300">
               AI
             </span>

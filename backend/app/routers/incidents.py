@@ -346,6 +346,6 @@ def download_incident_report(
     return Response(
         content=pdf_bytes,
         media_type="application/pdf",
-        headers={"Content-Disposition": f'attachment; filename="cybershield-incident-{inc.id}.pdf"'},
+        headers={"Content-Disposition": f'attachment; filename="safepulse-incident-{inc.id}.pdf"'},
     )
 

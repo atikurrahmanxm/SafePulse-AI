@@ -7,9 +7,9 @@ from tests.conftest import register_and_get_headers
 
 
 def test_argon2_password_hashing():
-    hashed = hash_password("CyberShield2026!")
+    hashed = hash_password("SafePulse2026!")
     assert hashed.startswith("$argon2")
-    assert verify_password("CyberShield2026!", hashed)
+    assert verify_password("SafePulse2026!", hashed)
     assert not verify_password("WrongPassword1", hashed)
 
 

@@ -353,7 +353,7 @@ export function IncidentsPage() {
                   try {
                     await downloadPdfReport(
                       `/api/incidents/${selectedIncident.id}/report.pdf`,
-                      `cybershield-incident-${selectedIncident.id}.pdf`
+                      `safepulse-incident-${selectedIncident.id}.pdf`
                     );
                   } catch (err) {
                     setError(

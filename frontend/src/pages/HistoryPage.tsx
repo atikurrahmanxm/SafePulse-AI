@@ -90,7 +90,7 @@ export function HistoryPage() {
 
   const handleDownloadPdf = async (item: HistoryItem) => {
     try {
-      await downloadPdfReport(item.pdf_url, `cybershield-${item.uid}.pdf`);
+      await downloadPdfReport(item.pdf_url, `safepulse-${item.uid}.pdf`);
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Could not download PDF report.");
     }
@@ -100,7 +100,7 @@ export function HistoryPage() {
     try {
       await downloadPdfReport(
         `/api/reports/monthly.pdf?language=${language}`,
-        `cybershield-monthly-report-${language}.pdf`
+        `safepulse-monthly-report-${language}.pdf`
       );
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Could not download monthly PDF report.");
@@ -199,7 +199,7 @@ export function HistoryPage() {
               />
             ) : (
               <table className="w-full text-left text-xs">
-                <caption className="visually-hidden">Unified CyberShield AI scan and incident history</caption>
+                <caption className="visually-hidden">Unified SafePulse AI scan and incident history</caption>
                 <thead>
                   <tr className="border-b border-slate-800 text-slate-400">
                     <th scope="col" className="py-2.5 pr-3">Type</th>

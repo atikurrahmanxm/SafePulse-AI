@@ -172,7 +172,7 @@ export function GovernancePage() {
     try {
       await downloadPdfReport(
         `/api/reports/monthly.pdf?language=${language}`,
-        `cybershield-monthly-report-${language}.pdf`
+        `safepulse-monthly-report-${language}.pdf`
       );
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Failed to download monthly PDF report.");

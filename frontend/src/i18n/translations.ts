@@ -2,7 +2,7 @@ export type Language = "en" | "bn";
 
 export const translations = {
   en: {
-    brand: "CyberShield AI",
+    brand: "SafePulse AI",
     tagline: "Smart Cybersecurity. Simple Protection. Safer Businesses.",
     nav: {
       overview: "Overview",
@@ -43,7 +43,7 @@ export const translations = {
       scanUrl: "Scan Website URL",
       startAssessment: "Start Security Assessment",
       reportIncident: "Report a Cyber Incident",
-      emptyTitle: "Welcome to CyberShield AI",
+      emptyTitle: "Welcome to SafePulse AI",
       emptyDesc:
         "Your workspace is ready. Run your first phishing check, scan a suspicious URL, or complete the 10-point Business Security Health Check to populate live telemetry.",
       monthlyReport: "Download Monthly Report (PDF)",
@@ -56,7 +56,7 @@ export const translations = {
       subtitle:
         "Track staff MFA adoption, software updates, offline backups, security policies, and prioritized hardening steps without exaggerated monitoring claims.",
       manualNotice:
-        "Self-Attested Governance Tracking: Status reflects controls logged by your business owner or IT lead. CyberShield AI does not run background agents on employee endpoints.",
+        "Self-Attested Governance Tracking: Status reflects controls logged by your business owner or IT lead. SafePulse AI does not run background agents on employee endpoints.",
     },
     phishing: {
       title: "AI Phishing & Scam Detector",
@@ -107,7 +107,7 @@ export const translations = {
         "Step-by-step containment, account protection, evidence preservation, and reporting checklists written in clear language.",
       startBtn: "Open Incident Playbook",
       disclaimer:
-        "Guidance Only: CyberShield AI guides your team through containment and reporting. It cannot independently remove malware, freeze bank transfers, or recover hacked accounts.",
+        "Guidance Only: SafePulse AI guides your team through containment and reporting. It cannot independently remove malware, freeze bank transfers, or recover hacked accounts.",
     },
     awareness: {
       title: "Employee Cyber Awareness",
@@ -138,7 +138,7 @@ export const translations = {
     },
   },
   bn: {
-    brand: "CyberShield AI",
+    brand: "SafePulse AI",
     tagline: "স্মার্ট সাইবার নিরাপত্তা। সহজ সুরক্ষা। নিরাপদ ব্যবসা।",
     nav: {
       overview: "ওভারভিউ (Overview)",
@@ -179,7 +179,7 @@ export const translations = {
       scanUrl: "ওয়েবসাইট URL স্ক্যান করুন",
       startAssessment: "নিরাপত্তা মূল্যায়ন শুরু করুন",
       reportIncident: "সাইবার ঘটনা রিপোর্ট করুন",
-      emptyTitle: "CyberShield AI-তে স্বাগতম",
+      emptyTitle: "SafePulse AI-তে স্বাগতম",
       emptyDesc:
         "আপনার ওয়ার্কস্পেস প্রস্তুত। লাইভ নিরাপত্তা তথ্য দেখতে প্রথম ফিশিং পরীক্ষা, URL স্ক্যান বা বিজনেস সিকিউরিটি হেলথ চেক সম্পন্ন করুন।",
       monthlyReport: "মাসিক নিরাপত্তা রিপোর্ট (PDF)",
@@ -243,7 +243,7 @@ export const translations = {
         "সহজ ভাষায় তাৎক্ষণিক পদক্ষেপ, অ্যাকাউন্ট সুরক্ষা, প্রমাণ সংরক্ষণ ও রিপোর্টিং চেকলিস্ট।",
       startBtn: "ইনসিডেন্ট প্লেবুক শুরু করুন",
       disclaimer:
-        "শুধুমাত্র নির্দেশনা: CyberShield AI আপনাকে করণীয় ধাপগুলো দেখায়; এটি নিজে থেকে ম্যালওয়্যার সরাতে বা হ্যাক হওয়া অ্যাকাউন্ট উদ্ধার করতে পারে না।",
+        "শুধুমাত্র নির্দেশনা: SafePulse AI আপনাকে করণীয় ধাপগুলো দেখায়; এটি নিজে থেকে ম্যালওয়্যার সরাতে বা হ্যাক হওয়া অ্যাকাউন্ট উদ্ধার করতে পারে না।",
     },
     awareness: {
       title: "কর্মী সাইবার সচেতনতা ও প্রশিক্ষণ",

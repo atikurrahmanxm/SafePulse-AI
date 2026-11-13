@@ -1,0 +1,44 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sp-bg" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#1E1B4B" />
+      <stop offset="100%" stopColor="#083344" />
+    </linearGradient>
+    <linearGradient id="sp-shield" x1="15" y1="10" x2="49" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#818CF8" />
+      <stop offset="55%" stopColor="#06B6D4" />
+      <stop offset="100%" stopColor="#34D399" />
+    </linearGradient>
+    <linearGradient id="sp-pulse" x1="17" y1="33" x2="47" y2="33" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#38BDF8" />
+      <stop offset="60%" stopColor="#22D3EE" />
+      <stop offset="100%" stopColor="#34D399" />
+    </linearGradient>
+  </defs>
+  <!-- Shield Base -->
+  <path
+    d="M32 7L12 15.5V31C12 43.5 20.6 53.5 32 57C43.4 53.5 52 43.5 52 31V15.5L32 7Z"
+    fill="url(#sp-bg)"
+    stroke="url(#sp-shield)"
+    stroke-width="3.5"
+    stroke-linejoin="round"
+  />
+  <!-- Upper Radar Arc -->
+  <path
+    d="M23 21C25.8 19 28.8 18 32 18C35.2 18 38.2 19 41 21"
+    stroke="#818CF8"
+    stroke-opacity="0.7"
+    stroke-width="2.2"
+    stroke-linecap="round"
+  />
+  <!-- Dynamic SafePulse Heartbeat Wave -->
+  <path
+    d="M19 33.5H25L28.5 25L32.5 41L36 30L38.5 35H45"
+    stroke="url(#sp-pulse)"
+    stroke-width="3.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle cx="32" cy="13.5" r="2.2" fill="#22D3EE" />
+  <circle cx="45" cy="35" r="1.8" fill="#34D399" />
+</svg>
