@@ -10,3 +10,4 @@ echo.
 echo Both windows launched! Open http://127.0.0.1:5173 in your browser.
 echo Press any key to close this launcher window (keep the other 2 windows open).
 pause >nul
+

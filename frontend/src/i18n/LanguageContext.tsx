@@ -8,11 +8,11 @@ interface LanguageContextValue {
 }
 
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
-const LANG_KEY = "cybershield_lang";
+const LANG_KEY = "safepulse_lang";
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem(LANG_KEY);
+    const saved = localStorage.getItem(LANG_KEY) || localStorage.getItem("cybershield_lang");
     return saved === "bn" ? "bn" : "en";
   });
 
