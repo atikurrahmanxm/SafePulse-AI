@@ -70,7 +70,12 @@ export function AuthPage({ mode }: { mode: "login" | "register" }) {
         aria-hidden="true"
       />
       <div className="relative mb-6">
-        <Link to="/" aria-label="Back to SafePulse AI landing page">
+        <Link
+          to="/"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="group inline-block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+          aria-label="Back to SafePulse AI landing page"
+        >
           <Logo size="lg" />
         </Link>
       </div>

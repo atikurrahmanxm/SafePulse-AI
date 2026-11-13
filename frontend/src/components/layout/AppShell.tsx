@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
   Bell,
   BookOpen,
@@ -265,14 +265,14 @@ export function AppShell() {
         )}
       >
         <div className="flex h-16 items-center justify-between border-b border-slate-800/80 px-4">
-          <button
-            type="button"
-            onClick={() => navigate("/app")}
-            className="text-left focus-visible:rounded-lg"
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-xl transition-opacity hover:opacity-90"
             aria-label="SafePulse AI Home"
           >
             <Logo compact={collapsed} />
-          </button>
+          </Link>
           <button
             type="button"
             onClick={() => setCollapsed((c) => !c)}
@@ -345,7 +345,17 @@ export function AppShell() {
           />
           <aside className="relative z-10 flex w-72 max-w-[85vw] flex-col border-r border-slate-800 bg-[#10182B]">
             <div className="flex h-16 items-center justify-between border-b border-slate-800 px-4">
-              <Logo />
+              <Link
+                to="/"
+                onClick={() => {
+                  setMobileOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-xl transition-opacity hover:opacity-90"
+                aria-label="SafePulse AI Home"
+              >
+                <Logo />
+              </Link>
               <button
                 type="button"
                 onClick={() => setMobileOpen(false)}

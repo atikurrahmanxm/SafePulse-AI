@@ -48,6 +48,13 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Virtual Environments
+.venv/
+venv/
+backend/.venv/
+env/
+ENV/
+
 # OS & Editor artifacts
 .DS_Store
 Thumbs.db

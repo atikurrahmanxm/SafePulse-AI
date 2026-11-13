@@ -4,9 +4,11 @@ import { cn } from "../../lib/utils";
 export function Logo({
   compact = false,
   size = "md",
+  className,
 }: {
   compact?: boolean;
   size?: "sm" | "md" | "lg";
+  className?: string;
 }) {
   const uid = useId().replace(/:/g, "");
   const bgId = `sp-bg-${uid}`;
@@ -26,10 +28,10 @@ export function Logo({
   }[size];
 
   return (
-    <div className="flex items-center gap-2.5 select-none">
+    <div className={cn("flex items-center gap-2.5 select-none cursor-pointer", className)}>
       <div
         className={cn(
-          "relative flex shrink-0 items-center justify-center border border-indigo-400/35 bg-[#0F172A] shadow-[0_6px_22px_-6px_rgba(6,182,212,0.55)]",
+          "relative flex shrink-0 items-center justify-center border border-indigo-400/35 bg-[#0F172A] shadow-[0_6px_22px_-6px_rgba(6,182,212,0.55)] transition-all duration-200 group-hover:border-cyan-400/60 group-hover:shadow-[0_8px_26px_-4px_rgba(6,182,212,0.7)] group-hover:scale-105",
           boxSizes
         )}
       >

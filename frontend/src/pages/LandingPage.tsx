@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   ArrowRight,
   CheckCircle2,
@@ -14,7 +14,6 @@ import {
   MessageSquareWarning,
   Shield,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -197,7 +196,14 @@ export function LandingPage() {
       {/* Clean Sticky Header */}
       <header className="sticky top-0 z-30 border-b border-slate-800/70 bg-[#070B18]/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-3 sm:gap-4 sm:px-6">
-          <Logo size="sm" />
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="group inline-flex items-center rounded-xl transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070B18]"
+            aria-label="SafePulse AI - Home"
+          >
+            <Logo size="sm" />
+          </Link>
           <nav aria-label="Landing Navigation" className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
             <a href="#how-it-works" className="transition-colors hover:text-white">
               {isBn ? "কীভাবে কাজ করে" : "How It Works"}
@@ -251,7 +257,7 @@ export function LandingPage() {
             <div className="grid items-center gap-12 lg:grid-cols-12">
               <div className="min-w-0 lg:col-span-6">
                 <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3.5 py-1 text-xs font-medium text-indigo-200">
-                  <Sparkles className="h-3.5 w-3.5 text-cyan-300" aria-hidden="true" />
+                  <ShieldCheck className="h-3.5 w-3.5 text-cyan-300" aria-hidden="true" />
                   <span>
                     {isBn
                       ? "AdtU Innovation Mela 2026 • ছোট ব্যবসার সাইবার সুরক্ষা"
@@ -545,7 +551,14 @@ export function LandingPage() {
       <footer className="border-t border-slate-800/80 bg-[#070B18] px-4 py-8 sm:px-6">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
-            <Logo size="sm" />
+            <Link
+              to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="group inline-flex items-center rounded-xl transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070B18]"
+              aria-label="SafePulse AI - Home"
+            >
+              <Logo size="sm" />
+            </Link>
             <p className="mt-2 text-xs text-slate-400">
               {t.tagline} • Assam down town University (AdtU) Innovation Mela 2026
             </p>

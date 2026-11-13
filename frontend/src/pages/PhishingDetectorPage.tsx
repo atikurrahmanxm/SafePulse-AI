@@ -8,7 +8,7 @@ import {
   Download,
   FileSearch,
   FlaskConical,
-  Sparkles,
+  ShieldCheck,
 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { apiRequest, ApiError, downloadPdfReport } from "../lib/api";
@@ -371,7 +371,7 @@ export function PhishingDetectorPage() {
                       <span>{language === "bn" ? "মুছুন" : "Clear"}</span>
                     </Button>
                     <Button type="submit" size="lg" disabled={loading}>
-                      <Sparkles className="h-4 w-4" aria-hidden="true" />
+                      <ShieldCheck className="h-4 w-4" aria-hidden="true" />
                       <span>{loading ? t.phishing.analyzing : t.phishing.analyzeBtn}</span>
                     </Button>
                   </div>
