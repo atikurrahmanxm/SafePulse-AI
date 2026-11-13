@@ -14,6 +14,7 @@ from .routers import (
     assessment,
     auth,
     awareness,
+    breaches,
     dashboard,
     governance,
     history,
@@ -73,6 +74,7 @@ app.include_router(incidents.router)
 app.include_router(awareness.router)
 app.include_router(history.router)
 app.include_router(governance.router)
+app.include_router(breaches.router)
 
 
 @app.get("/api/health", tags=["System"])

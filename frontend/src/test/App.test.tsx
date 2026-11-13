@@ -531,4 +531,72 @@ describe("SafePulse AI Frontend", () => {
       expect(revokeObjectUrlSpy).toHaveBeenCalled();
     });
   });
+
+  it("renders Data Breach Monitor and executes breach exposure check", async () => {
+    const user = userEvent.setup();
+    localStorage.setItem("safepulse_token", "test-jwt");
+
+    vi.stubGlobal("fetch", async (input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.includes("/api/auth/me")) {
+        return new Response(
+          JSON.stringify({
+            id: 1,
+            email: "owner@pharmacy.in",
+            full_name: "Dr. Owner",
+            business_id: 1,
+            business_name: "Guwahati Care Pharmacy",
+            business: { id: 1, name: "Guwahati Care Pharmacy", subscription_tier: "free" },
+            businesses: [{ id: 1, name: "Guwahati Care Pharmacy", role: "owner" }],
+          }),
+          { status: 200 }
+        );
+      }
+      if (url.includes("/api/breaches/check")) {
+        return new Response(
+          JSON.stringify({
+            query: "owner@pharmacy.in",
+            query_type: "email",
+            exposure_count: 2,
+            risk_level: "Moderate",
+            risk_score: 48,
+            category: "Potential Historical Exposure",
+            summary: "Matched 2 historical leaks.",
+            data_classes_exposed: ["Passwords", "GSTIN Numbers"],
+            breaches: [
+              {
+                id: "b-1",
+                title: "RetailPOS Cloud Leak",
+                domain: "retailpos.in",
+                breach_date: "2024-08-14",
+                pwn_count: 480000,
+                severity: "critical",
+                description: "POS DB backup exposed admin logins.",
+                data_classes: ["Passwords", "GSTIN Numbers"],
+              },
+            ],
+            recommended_actions: ["Reset passwords immediately", "Enable 2FA"],
+            checked_at: "2026-11-14T00:00:00Z",
+          }),
+          { status: 200 }
+        );
+      }
+      return new Response("{}", { status: 200 });
+    });
+
+    renderApp("/app/breach-monitor");
+
+    await waitFor(() => {
+      expect(screen.getByText(/Data Breach & Credential Exposure Monitor/)).toBeInTheDocument();
+      expect(screen.getByText(/Potential Data Breaches/)).toBeInTheDocument();
+    });
+
+    await user.click(screen.getByRole("button", { name: "Check Breach Exposure" }));
+
+    await waitFor(() => {
+      expect(screen.getByText(/Potential Historical Exposure/)).toBeInTheDocument();
+      expect(screen.getByText(/RetailPOS Cloud Leak/)).toBeInTheDocument();
+      expect(screen.getAllByText(/GSTIN Numbers/).length).toBeGreaterThan(0);
+    });
+  });
 });

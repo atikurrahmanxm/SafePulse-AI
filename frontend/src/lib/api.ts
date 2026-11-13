@@ -99,3 +99,39 @@ export async function downloadPdfReport(path: string, filename: string): Promise
   URL.revokeObjectURL(url);
 }
 
+export interface BreachRecord {
+  id: string;
+  title: string;
+  domain: string;
+  breach_date: string;
+  pwn_count: number;
+  severity: string;
+  description: string;
+  data_classes: string[];
+}
+
+export interface BreachCheckResult {
+  query: string;
+  query_type: "email" | "domain";
+  exposure_count: number;
+  risk_level: "Low" | "Moderate" | "High" | "Critical";
+  risk_score: number;
+  category: string;
+  summary: string;
+  data_classes_exposed: string[];
+  breaches: BreachRecord[];
+  recommended_actions: string[];
+  checked_at: string;
+}
+
+export async function checkBreachExposure(query: string, language: string = "en"): Promise<BreachCheckResult> {
+  return apiRequest<BreachCheckResult>("/api/breaches/check", {
+    method: "POST",
+    body: JSON.stringify({ query, language }),
+  });
+}
+
+export async function getDemoBreachSample(language: string = "en"): Promise<BreachCheckResult> {
+  return apiRequest<BreachCheckResult>(`/api/breaches/demo-sample?language=${language}`);
+}
+

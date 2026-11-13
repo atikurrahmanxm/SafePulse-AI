@@ -7,6 +7,7 @@ import {
   Calendar,
   CheckCircle2,
   ClipboardCheck,
+  Database,
   Download,
   FileBarChart2,
   FileWarning,
@@ -222,6 +223,10 @@ export function OverviewPage() {
           <Button size="sm" variant="secondary" onClick={handleDownloadMonthlyPdf} disabled={downloadingPdf}>
             <Download className="h-3.5 w-3.5 text-[#06B6D4]" aria-hidden="true" />
             <span>{downloadingPdf ? "..." : t.dashboard.monthlyReport}</span>
+          </Button>
+          <Button size="sm" variant="secondary" className="border-purple-500/40 hover:bg-purple-500/10 text-purple-200" onClick={() => navigate("/app/breach-monitor")}>
+            <Database className="h-3.5 w-3.5 text-purple-400" aria-hidden="true" />
+            <span>{language === "bn" ? "ডাটা ব্রিচ চেক" : "Breach Check"}</span>
           </Button>
           <Button size="sm" onClick={() => navigate("/app/phishing")}>
             <MessageSquareWarning className="h-3.5 w-3.5" aria-hidden="true" />

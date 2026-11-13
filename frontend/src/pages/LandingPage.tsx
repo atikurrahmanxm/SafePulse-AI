@@ -5,6 +5,7 @@ import {
   CheckCircle2,
   ChevronDown,
   ClipboardCheck,
+  Database,
   FileBarChart2,
   FileWarning,
   Globe,
@@ -134,6 +135,12 @@ export function LandingPage() {
           desc: "মাসিক, ফিশিং, লিংক, চেকআপ ও ঘটনার PDF রিপোর্ট ১ ক্লিকে ডাউনলোড করুন।",
         },
         {
+          icon: Database,
+          color: "text-purple-300 bg-purple-500/15 border-purple-500/30",
+          title: "ডাটা ব্রিচ ও ফাঁস মনিটর",
+          desc: "দোকানের ইমেইল বা ক্যাশিয়ার পাসওয়ার্ড কোনো ডাটা ফাঁসে লিক হয়েছে কি না ১ ক্লিকে জানুন।",
+        },
+        {
           icon: GraduationCap,
           color: "text-sky-300 bg-sky-500/15 border-sky-500/30",
           title: "টিম সচেতনতা ও কুইজ",
@@ -170,6 +177,12 @@ export function LandingPage() {
           color: "text-indigo-300 bg-indigo-500/15 border-indigo-500/30",
           title: "Easy PDF Reports Center",
           desc: "Export monthly executive, phishing, URL, checkup, and incident PDFs in 1 click.",
+        },
+        {
+          icon: Database,
+          color: "text-purple-300 bg-purple-500/15 border-purple-500/30",
+          title: "Data Breach & Exposure Monitor",
+          desc: "Detect if employee emails, passwords, or vendor logins were leaked in public data breaches.",
         },
         {
           icon: GraduationCap,
@@ -243,6 +256,22 @@ export function LandingPage() {
                     {isBn
                       ? "AdtU Innovation Mela 2026 • ছোট ব্যবসার সাইবার সুরক্ষা"
                       : "AdtU Innovation Mela 2026 • Built for SMEs"}
+                  </span>
+                </div>
+
+                {/* 4 Hackathon Problem Statement Focus Pillars */}
+                <div className="mb-4 flex flex-wrap items-center gap-1.5 text-[11px] font-semibold text-slate-300">
+                  <span className="rounded-md border border-rose-500/30 bg-rose-500/10 px-2 py-0.5 text-rose-300">
+                    🎣 {isBn ? "ফিশিং ডিটেকশন" : "Phishing Attempts"}
+                  </span>
+                  <span className="rounded-md border border-cyan-500/30 bg-cyan-500/10 px-2 py-0.5 text-cyan-300">
+                    🦠 {isBn ? "ম্যালওয়্যার সুরক্ষা" : "Malware Payloads"}
+                  </span>
+                  <span className="rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-amber-300">
+                    ⚠️ {isBn ? "সন্দেহজনক কার্যক্রম" : "Suspicious Activities"}
+                  </span>
+                  <span className="rounded-md border border-purple-500/30 bg-purple-500/10 px-2 py-0.5 text-purple-300">
+                    🛡️ {isBn ? "ডাটা ব্রিচ মনিটর" : "Data Breaches"}
                   </span>
                 </div>
                 <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl sm:leading-[1.12]">

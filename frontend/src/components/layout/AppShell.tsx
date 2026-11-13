@@ -7,6 +7,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ClipboardCheck,
+  Database,
   FileBarChart2,
   FileWarning,
   Globe,
@@ -105,6 +106,12 @@ export function AppShell() {
         to: "/app/url-scanner",
         label: t.nav.urlScanner,
         icon: Link2,
+        group: language === "bn" ? "সুরক্ষা ও স্ক্যান" : "Protect & Scan",
+      },
+      {
+        to: "/app/breach-monitor",
+        label: t.nav.breachMonitor,
+        icon: Database,
         group: language === "bn" ? "সুরক্ষা ও স্ক্যান" : "Protect & Scan",
       },
       {
@@ -284,9 +291,9 @@ export function AppShell() {
               <div className="flex items-center justify-between gap-2">
                 <div className="truncate text-xs font-semibold text-slate-100">{user.full_name}</div>
                 <span className="shrink-0 rounded bg-indigo-500/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase text-indigo-300 border border-indigo-500/25">
-                  {user.business.subscription_tier === "pro_sme"
+                  {user.business?.subscription_tier === "pro_sme"
                     ? "Pro SME"
-                    : user.business.subscription_tier === "enterprise_ready"
+                    : user.business?.subscription_tier === "enterprise_ready"
                     ? "Multi-Site"
                     : "Free"}
                 </span>

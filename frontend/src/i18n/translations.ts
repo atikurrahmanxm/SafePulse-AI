@@ -8,6 +8,7 @@ export const translations = {
       overview: "Overview",
       phishing: "Phishing Detector",
       urlScanner: "URL Security Scanner",
+      breachMonitor: "Data Breach Monitor",
       assessment: "Business Security Assessment",
       governance: "Governance & Team Posture",
       incidents: "Incident Response Center",
@@ -88,6 +89,23 @@ export const translations = {
       ssrfNote:
         "SSRF Protection Active: Localhost, private IPs, and target content execution are strictly blocked.",
     },
+    breaches: {
+      title: "Data Breach & Credential Exposure Monitor",
+      subtitle:
+        "Detect if your business email, cashier logins, or supplier credentials were leaked in known vendor database breaches.",
+      inputLabel: "Business Email Address or Domain",
+      inputPlaceholder: "e.g., owner@pharmacy.in, billing@store.com",
+      scanBtn: "Check Breach Exposure",
+      scanning: "Searching Breach Repositories...",
+      demoBtn: "Load Demo Exposure Sample",
+      detectedTitle: "Exposed Incidents Identified",
+      noBreachesTitle: "All Clear — No Public Exposures Detected",
+      dataClassesTitle: "Compromised Data Categories",
+      remediationTitle: "Immediate Containment Actions",
+      downloadPdf: "Download Breach Assessment PDF",
+      disclaimer:
+        "SafePulse AI inspects offline threat intelligence benchmark logs. It does not store, request, or expose plaintext passwords.",
+    },
     assessment: {
       title: "Business Security Health Check",
       subtitle:
@@ -144,6 +162,7 @@ export const translations = {
       overview: "ওভারভিউ (Overview)",
       phishing: "ফিশিং ও স্ক্যাম ডিটেক্টর",
       urlScanner: "URL নিরাপত্তা স্ক্যানার",
+      breachMonitor: "ডাটা ব্রিচ ও ফাঁস মনিটর",
       assessment: "ব্যবসায়িক নিরাপত্তা মূল্যায়ন",
       governance: "টিম ও নিরাপত্তা পরিচালনা",
       incidents: "ইনসিডেন্ট রেসপন্স সেন্টার",
@@ -223,6 +242,23 @@ export const translations = {
         "গুরুত্বপূর্ণ: HTTPS (তালা চিহ্ন) মানেই সাইটটি নিরাপদ নয় — ফিশিং সাইটেও HTTPS থাকে। কম ঝুঁকি মানে স্থানীয় কোনো লাল সংকেত পাওয়া যায়নি, কিন্তু সম্পূর্ণ নিরাপদের গ্যারান্টি নয়।",
       ssrfNote:
         "SSRF সুরক্ষা সক্রিয়: লোকালহোস্ট, প্রাইভেট IP এবং টার্গেট সাইট ওপেন করা সম্পূর্ণ ব্লক করা হয়েছে।",
+    },
+    breaches: {
+      title: "ডাটা ব্রিচ ও ফাঁস পর্যবেক্ষণ (Data Breach Monitor)",
+      subtitle:
+        "আপনার দোকানের ইমেইল, ক্যাশিয়ার লগইন বা পাসওয়ার্ড কোনো পাবলিক ডাটা ফাঁসে লিক হয়েছে কি না যাচাই করুন।",
+      inputLabel: "ব্যবসায়িক ইমেইল বা ডোমেইন নাম",
+      inputPlaceholder: "যেমন: owner@pharmacy.in, billing@store.com",
+      scanBtn: "ফাঁসের ঝুঁকি পরীক্ষা করুন",
+      scanning: "ডাটাবেজ ও ডাম্প অনুসন্ধান চলছে...",
+      demoBtn: "ডেমো নমুনা লোড করুন",
+      detectedTitle: "শনাক্ত হওয়া ডাটা ফাঁসের ঘটনা",
+      noBreachesTitle: "সব নিরাপদ — কোনো ফাঁসের তথ্য মেলেনি",
+      dataClassesTitle: "ফাঁস হওয়া তথ্যের ধরন",
+      remediationTitle: "অবিলম্বে করণীয় পদক্ষেপ",
+      downloadPdf: "ডাটা ব্রিচ মূল্যায়ন PDF",
+      disclaimer:
+        "SafePulse AI অফলাইন নিরাপত্তা ডাটাবেজের মাধ্যমে যাচাই করে। এটি কোনো আসল পাসওয়ার্ড সংরক্ষণ বা প্রকাশ করে না।",
     },
     assessment: {
       title: "বিজনেস সিকিউরিটি হেলথ চেক",

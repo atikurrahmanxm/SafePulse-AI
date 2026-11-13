@@ -16,6 +16,9 @@ const PhishingDetectorPage = lazy(() =>
 const UrlScannerPage = lazy(() =>
   import("./pages/UrlScannerPage").then((m) => ({ default: m.UrlScannerPage }))
 );
+const BreachMonitorPage = lazy(() =>
+  import("./pages/BreachMonitorPage").then((m) => ({ default: m.BreachMonitorPage }))
+);
 const AssessmentPage = lazy(() =>
   import("./pages/AssessmentPage").then((m) => ({ default: m.AssessmentPage }))
 );
@@ -81,6 +84,7 @@ export function AppRoutes() {
           <Route index element={<OverviewPage />} />
           <Route path="phishing" element={<PhishingDetectorPage />} />
           <Route path="url-scanner" element={<UrlScannerPage />} />
+          <Route path="breach-monitor" element={<BreachMonitorPage />} />
           <Route path="assessment" element={<AssessmentPage />} />
           <Route path="governance" element={<GovernancePage />} />
           <Route path="incidents" element={<IncidentsPage />} />

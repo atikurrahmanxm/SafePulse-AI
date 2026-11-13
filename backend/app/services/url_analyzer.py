@@ -455,6 +455,31 @@ def analyze_url(raw_url: str, language: str = "en") -> Dict[str, Any]:
             14,
         )
 
+    # 6b. Direct Malware Payload Target Detection (.apk, .exe, .scr, .bat, .vbs, .msi, .iso, .ps1)
+    path_lower = parsed.path.lower()
+    malware_ext_map = {
+        ".apk": ("Android Package (Mobile Malware / Banking Trojan Risk)", "অ্যান্ড্রয়েড প্যাকেজ (মোবাইল ম্যালওয়্যার ও ব্যাংকিং ট্রোজান ঝুঁকি)"),
+        ".exe": ("Windows Executable (Ransomware / Keylogger Risk)", "উইন্ডোজ এক্সিকিউটেবল (র‍্যানসমওয়্যার ও কীলগার ঝুঁকি)"),
+        ".scr": ("Screensaver Executable Payload", "স্ক্রিনসেভার এক্সিকিউটেবল পেলোড"),
+        ".bat": ("Windows Batch Script Payload", "উইন্ডোজ ব্যাচ স্ক্রিপ্ট পেলোড"),
+        ".vbs": ("VBScript Malware Dropper", "ভিবি স্ক্রিপ্ট ড্রপার"),
+        ".msi": ("Windows Installer Package", "উইন্ডোজ ইনস্টলার প্যাকেজ"),
+        ".iso": ("Disk Image Container Payload", "ডিস্ক ইমেজ কনটেইনার পেলোড"),
+        ".ps1": ("PowerShell Script Malware Payload", "পাওয়ারশেল স্ক্রিপ্ট ম্যালওয়্যার পেলোড"),
+    }
+    for ext, (ext_desc_en, ext_desc_bn) in malware_ext_map.items():
+        if path_lower.endswith(ext) or f"{ext}?" in path_lower or f"{ext}&" in path_lower:
+            add_indicator(
+                "malware_payload_target",
+                f"Direct Malware Payload Target ({ext.upper()})",
+                f"সরাসরি ম্যালওয়্যার ফাইল লক্ষ্যবস্তু ({ext.upper()})",
+                "critical",
+                f"URL directly delivers an executable or script payload ({ext_desc_en}). Attackers commonly disguise these as invoice PDFs or bank update tools to compromise small business devices.",
+                f"লিঙ্কটি সরাসরি একটি এক্সিকিউটেবল বা স্ক্রিপ্ট ফাইলের দিকে নির্দেশ করে ({ext_desc_bn}) যা দোকানে বা অফিসে ব্যবহৃত ডিভাইসে ম্যালওয়্যার ইনস্টল করতে পারে।",
+                32,
+            )
+            break
+
     # 7. Safe DNS analysis (A, SPF, DMARC) — never execute HTTP request to target
     dns_records: Dict[str, Any] = {"dns_status": "skipped_ip_literal"}
     if not is_ip_literal:
