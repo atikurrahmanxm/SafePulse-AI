@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="csBg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E1B4B" />
+      <stop offset="55%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#083344" />
+    </linearGradient>
+    <linearGradient id="csShield" x1="16" y1="10" x2="48" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#818CF8" />
+      <stop offset="55%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+    <linearGradient id="csCheck" x1="23" y1="32" x2="42" y2="25" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+  </defs>
+  <rect x="3" y="3" width="58" height="58" rx="16" fill="url(#csBg)" stroke="#334155" stroke-width="2" />
+  <path
+    d="M32 11L15 18.5V31.5C15 42.2 22.3 50.8 32 54C41.7 50.8 49 42.2 49 31.5V18.5L32 11Z"
+    fill="#0B1224"
+    fill-opacity="0.88"
+    stroke="url(#csShield)"
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M23 23.5C25.5 21.4 28.6 20.2 32 20.2C35.4 20.2 38.5 21.4 41 23.5"
+    stroke="#6366F1"
+    stroke-opacity="0.55"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+  <path
+    d="M24 32.5L29.5 38L40.5 26"
+    stroke="url(#csCheck)"
+    stroke-width="3.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle cx="32" cy="17.2" r="1.8" fill="#22D3EE" />
+</svg>
+

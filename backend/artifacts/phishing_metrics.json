@@ -1,0 +1,169 @@
+{
+  "model_name": "TF-IDF (Word + Char N-grams) + Logistic Regression",
+  "trained_at": "2026-11-12T09:40:16.820216+00:00",
+  "dataset": {
+    "total_samples": 128,
+    "phishing_samples": 64,
+    "benign_samples": 64,
+    "train_size": 96,
+    "held_out_test_size": 32,
+    "split_strategy": "75% / 25% stratified train/held-out test split (random_state=42)",
+    "channels": [
+      "email",
+      "sms",
+      "whatsapp"
+    ],
+    "description": "Curated SME-focused phishing & legitimate communication corpus covering Email, SMS, and WhatsApp across banking/KYC lures, UPI PIN scams, GST/tax impersonation, courier scams, BEC invoice fraud, credential harvesting, and hard-negative benign alerts."
+  },
+  "held_out_metrics": {
+    "accuracy": 0.875,
+    "precision": 0.9286,
+    "recall": 0.8125,
+    "f1_score": 0.8667,
+    "roc_auc": 0.9531,
+    "confusion_matrix": {
+      "tn": 15,
+      "fp": 1,
+      "fn": 3,
+      "tp": 13,
+      "matrix": [
+        [
+          15,
+          1
+        ],
+        [
+          3,
+          13
+        ]
+      ],
+      "labels": [
+        "Legitimate (0)",
+        "Phishing (1)"
+      ]
+    },
+    "per_class": {
+      "legitimate": {
+        "precision": 0.8333,
+        "recall": 0.9375,
+        "f1": 0.8824,
+        "support": 16
+      },
+      "phishing": {
+        "precision": 0.9286,
+        "recall": 0.8125,
+        "f1": 0.8667,
+        "support": 16
+      }
+    }
+  },
+  "cross_validation_5fold": {
+    "mean_f1": 0.8929,
+    "std_f1": 0.0721,
+    "fold_scores": [
+      0.7826,
+      0.96,
+      0.8333,
+      0.9286,
+      0.96
+    ]
+  },
+  "top_indicators": {
+    "phishing_terms": [
+      {
+        "term": "http",
+        "weight": 1.027
+      },
+      {
+        "term": "at http",
+        "weight": 0.784
+      },
+      {
+        "term": "and",
+        "weight": 0.587
+      },
+      {
+        "term": "urgent",
+        "weight": 0.422
+      },
+      {
+        "term": "immediately",
+        "weight": 0.408
+      },
+      {
+        "term": "000",
+        "weight": 0.403
+      },
+      {
+        "term": "your shop",
+        "weight": 0.401
+      },
+      {
+        "term": "hours",
+        "weight": 0.388
+      },
+      {
+        "term": "click",
+        "weight": 0.369
+      },
+      {
+        "term": "pay",
+        "weight": 0.329
+      },
+      {
+        "term": "to",
+        "weight": 0.325
+      },
+      {
+        "term": "pan",
+        "weight": 0.306
+      }
+    ],
+    "legitimate_terms": [
+      {
+        "term": "for",
+        "weight": -0.922
+      },
+      {
+        "term": "the",
+        "weight": -0.467
+      },
+      {
+        "term": "2026",
+        "weight": -0.421
+      },
+      {
+        "term": "been",
+        "weight": -0.371
+      },
+      {
+        "term": "official",
+        "weight": -0.341
+      },
+      {
+        "term": "monthly",
+        "weight": -0.33
+      },
+      {
+        "term": "if",
+        "weight": -0.325
+      },
+      {
+        "term": "00",
+        "weight": -0.324
+      },
+      {
+        "term": "has",
+        "weight": -0.315
+      },
+      {
+        "term": "you",
+        "weight": -0.315
+      }
+    ]
+  },
+  "limitations": [
+    "Trained on a curated SME corpus rather than live enterprise mail telemetry; novel zero-day templates or non-English scripts outside training patterns may score lower.",
+    "Short, ambiguous messages (< 15 words) have lower statistical confidence and rely more heavily on transparent heuristic verification.",
+    "Risk bands (0-24 Low, 25-49 Moderate, 50-74 High, 75-100 Critical) are CyberShield AI application thresholds, not universal industry standards."
+  ]
+}
