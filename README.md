@@ -1,21 +1,39 @@
+<p align="center">
+  <img src="docs/assets/safepulse-banner.svg" alt="SafePulse AI Banner" width="100%">
+</p>
+
 # SafePulse AI
 
 **Smart Cybersecurity. Simple Protection. Safer Businesses.**  
 *AdtU Innovation Mela 2026 — Assam down town University (AdtU), India*  
-*Problem Statement: Small Business Cybersecurity Platform*
+*Official Problem Statement: Small Business Cybersecurity Platform*
 
-SafePulse AI is an AI-powered, bilingual (English & Bengali) cybersecurity SaaS platform built specifically for small businesses, local retail shops, pharmacies, clinics, startups, and SMEs. It combines an explainable machine-learning phishing detector, an SSRF-safe URL & DNS security analyzer, a CERT-In MSME aligned 10-domain business health assessment, a 6-phase interactive incident response center, employee cyber awareness training, and downloadable PDF reporting.
+> **"Develop an affordable cybersecurity solution that helps small businesses detect phishing attempts, malware, suspicious activities, and potential data breaches."**
+
+SafePulse AI is an AI-powered, bilingual (English & Bengali) cybersecurity SaaS platform built specifically for small businesses, local retail shops, pharmacies, clinics, startups, and SMEs. It combines an explainable machine-learning phishing detector, malware payload inspection, an SSRF-safe URL & DNS security analyzer, a credential breach & data leak monitor, a CERT-In MSME aligned 10-domain business health assessment, a 6-phase interactive incident response center, employee cyber awareness training, and downloadable PDF reporting.
+
+---
+
+## 4 Core Hackathon Pillars
+
+| Problem Statement Pillar | How SafePulse AI Solves It | Module |
+| :--- | :--- | :--- |
+| **1. Phishing Attempts** | TF-IDF + Logistic Regression NLP classifier trained on real phishing attacks, with inline phrase highlighting, urgency scoring, and WhatsApp/SMS scam alerts. | [Phishing Detector](frontend/src/pages/PhishingDetectorPage.tsx) |
+| **2. Malware Detection** | Intercepts malicious executable drops (`.apk`, `.exe`, `.scr`, `.bat`, `.msi`, `.iso`) targeting shop POS systems and Android owner devices. | [URL & Payload Scanner](frontend/src/pages/UrlScannerPage.tsx) |
+| **3. Suspicious Activities** | Real-time brand impersonation detection, fake UPI ID flagging, typosquatting checks, and audit logging for abnormal activity. | [URL Scanner](frontend/src/pages/UrlScannerPage.tsx) & [Incidents Desk](frontend/src/pages/IncidentsPage.tsx) |
+| **4. Potential Data Breaches** | Monitors business emails, domains, and phone numbers against known SME leaks, exposes leaked data classes (Passwords, GSTINs), and generates 1-click PDF reports. | [Breach Monitor](frontend/src/pages/BreachMonitorPage.tsx) |
 
 ---
 
 ## Key Capabilities
 
 1. **AI Phishing & Scam Detector** — TF-IDF (word + character n-grams) + Logistic Regression pipeline paired with transparent social-engineering rules, inline phrase highlighting, calibrated confidence, 0–100 risk bands, PDF reports, and live held-out evaluation metrics.
-2. **SSRF-Safe Smart URL Security Analyzer** — Lexical & domain obfuscation checks, brand-impersonation detection, read-only DNS A/SPF/DMARC lookup (`dnspython`), strict blocking of `localhost`, private/loopback/metadata IP ranges, and explicit "HTTPS ≠ Safe" & "Unknown vs. Safe" notices. Never fetches or executes target URLs.
-3. **Business Security Health Check** — Interactive 10-domain posture assessment aligned with CERT-In MSME guidance (Passwords, MFA, Email Security, Access Permissions, Software Updates, Backups, Data Protection, Device Security, Wi-Fi Security, Incident Readiness) with weighted scoring and PDF action plans.
-4. **Cyber Incident Response Center** — Guided 6-phase interactive checklists across 7 SME incident scenarios (including phishing clicks, UPI/financial fraud with India Helpline 1930 guidance, BEC, and suspected ransomware).
-5. **Employee Cyber Awareness** — Bilingual security micro-lessons, clearly labeled **Training Simulation** phishing examples, and interactive graded quizzes.
-6. **Hackathon Demo Mode & Tenant Isolation** — Argon2 password hashing, JWT authentication, sliding-window rate limiting, audit logs, per-business data isolation, and a one-click clearly labeled Demo Workspace.
+2. **SSRF-Safe Smart URL & Malware Analyzer** — Lexical & domain obfuscation checks, executable payload inspection (`.apk`/`.exe`/`.scr`), brand-impersonation detection, read-only DNS A/SPF/DMARC lookup (`dnspython`), strict blocking of `localhost`, private/loopback/metadata IP ranges, and explicit "HTTPS ≠ Safe" & "Unknown vs. Safe" notices. Never fetches or executes target URLs.
+3. **Data Breach & Credential Leak Radar** — Proactive scanner matching business identifiers against historical and infostealer breaches with severity scoring, remediation guidance, and 1-click official PDF export.
+4. **Business Security Health Check** — Interactive 10-domain posture assessment aligned with CERT-In MSME guidance (Passwords, MFA, Email Security, Access Permissions, Software Updates, Backups, Data Protection, Device Security, Wi-Fi Security, Incident Readiness) with weighted scoring and PDF action plans.
+5. **Cyber Incident Response Center** — Guided 6-phase interactive checklists across 7 SME incident scenarios (including phishing clicks, UPI/financial fraud with India Helpline 1930 guidance, BEC, and suspected ransomware).
+6. **Employee Cyber Awareness** — Bilingual security micro-lessons, clearly labeled **Training Simulation** phishing examples, and interactive graded quizzes.
+7. **Hackathon Demo Mode & Tenant Isolation** — Argon2 password hashing, JWT authentication, sliding-window rate limiting, audit logs, per-business data isolation, and a one-click clearly labeled Demo Workspace.
 
 ---
 

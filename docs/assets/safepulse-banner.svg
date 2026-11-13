@@ -1,0 +1,236 @@
+<svg width="1200" height="460" viewBox="0 0 1200 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="1200" y2="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#050811" />
+      <stop offset="50%" stop-color="#0B132B" />
+      <stop offset="100%" stop-color="#04121E" />
+    </linearGradient>
+
+    <!-- Ambient Glows -->
+    <radialGradient id="glow-cyan" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(320 220) rotate(45) scale(380 280)">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.32" />
+      <stop offset="60%" stop-color="#0284C7" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow-purple" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 120) rotate(135) scale(360 260)">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#6366F1" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow-emerald" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(950 360) scale(320 220)">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Shield & Pulse Gradients -->
+    <linearGradient id="shield-border" x1="90" y1="90" x2="230" y2="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#818CF8" />
+      <stop offset="50%" stop-color="#22D3EE" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+    <linearGradient id="shield-fill" x1="100" y1="100" x2="220" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E1B4B" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#0C4A6E" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#064E3B" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="pulse-stroke" x1="100" y1="210" x2="220" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="60%" stop-color="#22D3EE" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+
+    <!-- Text Title Gradient -->
+    <linearGradient id="title-grad" x1="280" y1="130" x2="780" y2="130" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="55%" stop-color="#F0FDF4" />
+      <stop offset="100%" stop-color="#67E8F9" />
+    </linearGradient>
+
+    <!-- Pillar Card Gradients -->
+    <linearGradient id="card-border" x1="0" y1="0" x2="200" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#818CF8" stop-opacity="0.15" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="0.75" stroke-opacity="0.35" />
+      <circle cx="40" cy="40" r="1" fill="#38BDF8" fill-opacity="0.25" />
+    </pattern>
+
+    <!-- Drop Shadow Filters -->
+    <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="460" rx="16" fill="url(#bg-grad)" />
+  <rect width="1200" height="460" rx="16" fill="url(#grid)" />
+
+  <!-- Ambient Glow Spheres -->
+  <rect width="1200" height="460" fill="url(#glow-cyan)" />
+  <rect width="1200" height="460" fill="url(#glow-purple)" />
+  <rect width="1200" height="460" fill="url(#glow-emerald)" />
+
+  <!-- Outer Frame Border -->
+  <rect x="1.5" y="1.5" width="1197" height="457" rx="14.5" fill="none" stroke="#1E293B" stroke-opacity="0.8" stroke-width="1.5" />
+  <rect x="2" y="2" width="1196" height="4" fill="url(#shield-border)" />
+
+  <!-- ==================== LEFT: LOGO ICON ==================== -->
+  <g transform="translate(85, 125)">
+    <!-- Outer Glow Aura -->
+    <circle cx="85" cy="85" r="95" fill="#06B6D4" fill-opacity="0.12" filter="url(#glow-filter)" />
+    
+    <!-- Shield Container (Scale x3 from 64x64 base) -->
+    <g transform="scale(2.65)">
+      <!-- Shield Base -->
+      <path
+        d="M32 7L12 15.5V31C12 43.5 20.6 53.5 32 57C43.4 53.5 52 43.5 52 31V15.5L32 7Z"
+        fill="url(#shield-fill)"
+        stroke="url(#shield-border)"
+        stroke-width="2.6"
+        stroke-linejoin="round"
+      />
+      <!-- Radar Arc -->
+      <path
+        d="M23 21C25.8 19 28.8 18 32 18C35.2 18 38.2 19 41 21"
+        stroke="#818CF8"
+        stroke-opacity="0.75"
+        stroke-width="1.8"
+        stroke-linecap="round"
+      />
+      <!-- Heartbeat SafePulse Line -->
+      <path
+        d="M19 33.5H25L28.5 25L32.5 41L36 30L38.5 35H45"
+        stroke="url(#pulse-stroke)"
+        stroke-width="2.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#glow-filter)"
+      />
+      <circle cx="32" cy="13.5" r="1.8" fill="#22D3EE" />
+      <circle cx="45" cy="35" r="1.5" fill="#34D399" />
+    </g>
+  </g>
+
+  <!-- ==================== CENTER-RIGHT: HEADINGS & BADGES ==================== -->
+
+  <!-- Top Badges Row -->
+  <g transform="translate(315, 62)">
+    <!-- Event Badge -->
+    <rect x="0" y="0" width="220" height="28" rx="14" fill="#1E1B4B" stroke="#6366F1" stroke-opacity="0.5" stroke-width="1" />
+    <circle cx="14" cy="14" r="4" fill="#818CF8" />
+    <text x="26" y="18" fill="#C7D2FE" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" letter-spacing="0.5">AdtU INNOVATION MELA 2026</text>
+
+    <!-- Bilingual Badge -->
+    <g transform="translate(230, 0)">
+      <rect x="0" y="0" width="165" height="28" rx="14" fill="#082F49" stroke="#0284C7" stroke-opacity="0.5" stroke-width="1" />
+      <circle cx="14" cy="14" r="4" fill="#38BDF8" />
+      <text x="26" y="18" fill="#BAE6FD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600">English + বাংলা (Bilingual)</text>
+    </g>
+
+    <!-- Zero-Cost Badge -->
+    <g transform="translate(405, 0)">
+      <rect x="0" y="0" width="180" height="28" rx="14" fill="#064E3B" stroke="#059669" stroke-opacity="0.5" stroke-width="1" />
+      <circle cx="14" cy="14" r="4" fill="#34D399" />
+      <text x="26" y="18" fill="#A7F3D0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600">100% Local • Zero API Cost</text>
+    </g>
+  </g>
+
+  <!-- Main Platform Title -->
+  <text x="315" y="145" fill="url(#title-grad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="52" font-weight="800" letter-spacing="-1">
+    SafePulse <tspan fill="#22D3EE">AI</tspan>
+  </text>
+
+  <!-- Subtitle / Tagline -->
+  <text x="317" y="182" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="500">
+    Affordable, AI-Powered Cybersecurity Platform Built for Small Businesses &amp; Retailers
+  </text>
+  <text x="317" y="206" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400">
+    Detects Phishing Attempts • Blocks Malware Payloads • Flags Suspicious Scams • Monitors Data Breaches
+  </text>
+
+  <!-- ==================== 4 PILLARS CARDS ROW ==================== -->
+  <g transform="translate(85, 252)">
+    
+    <!-- Pillar 1: Phishing Attempts -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="242" height="96" rx="12" fill="#0B132B" fill-opacity="0.8" stroke="url(#card-border)" stroke-width="1.2" />
+      <rect x="12" y="14" width="34" height="34" rx="8" fill="#3B82F6" fill-opacity="0.15" />
+      <text x="22" y="37" font-size="18">🎣</text>
+      <text x="56" y="28" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">Phishing Attempts</text>
+      <text x="56" y="44" fill="#38BDF8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Dual-Layer NLP Classifier</text>
+      <text x="14" y="74" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Detects SMS, WhatsApp &amp; invoice fraud with instant urgency phrase alerts.</text>
+    </g>
+
+    <!-- Pillar 2: Malware Payloads -->
+    <g transform="translate(262, 0)">
+      <rect x="0" y="0" width="242" height="96" rx="12" fill="#0B132B" fill-opacity="0.8" stroke="url(#card-border)" stroke-width="1.2" />
+      <rect x="12" y="14" width="34" height="34" rx="8" fill="#EF4444" fill-opacity="0.15" />
+      <text x="22" y="37" font-size="18">🦠</text>
+      <text x="56" y="28" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">Malware Payloads</text>
+      <text x="56" y="44" fill="#F87171" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">APK &amp; EXE Payload Shield</text>
+      <text x="14" y="74" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Intercepts malicious trojan drops targeting retail POS &amp; Android devices.</text>
+    </g>
+
+    <!-- Pillar 3: Suspicious Activities -->
+    <g transform="translate(524, 0)">
+      <rect x="0" y="0" width="242" height="96" rx="12" fill="#0B132B" fill-opacity="0.8" stroke="url(#card-border)" stroke-width="1.2" />
+      <rect x="12" y="14" width="34" height="34" rx="8" fill="#F59E0B" fill-opacity="0.15" />
+      <text x="22" y="37" font-size="18">⚠️</text>
+      <text x="56" y="28" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">Suspicious Activities</text>
+      <text x="56" y="44" fill="#FBBF24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Brand &amp; UPI Scams</text>
+      <text x="14" y="74" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Flags fake QR codes, domain typosquatting, and unverified merchant links.</text>
+    </g>
+
+    <!-- Pillar 4: Potential Data Breaches -->
+    <g transform="translate(786, 0)">
+      <rect x="0" y="0" width="244" height="96" rx="12" fill="#0B132B" fill-opacity="0.8" stroke="url(#card-border)" stroke-width="1.2" />
+      <rect x="12" y="14" width="34" height="34" rx="8" fill="#10B981" fill-opacity="0.15" />
+      <text x="22" y="37" font-size="18">🛡️</text>
+      <text x="56" y="28" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">Data Breach Monitor</text>
+      <text x="56" y="44" fill="#34D399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">Credential Leak Radar</text>
+      <text x="14" y="74" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Monitors exposed passwords &amp; GSTINs with 1-click official PDF export.</text>
+    </g>
+  </g>
+
+  <!-- ==================== BOTTOM TECH STACK BAR ==================== -->
+  <g transform="translate(85, 385)">
+    <line x1="0" y1="0" x2="1030" y2="0" stroke="#1E293B" stroke-width="1" />
+    <text x="0" y="28" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" letter-spacing="1">BUILT WITH:</text>
+    
+    <g transform="translate(95, 12)">
+      <!-- FastAPI -->
+      <rect x="0" y="0" width="85" height="24" rx="6" fill="#1E293B" fill-opacity="0.6" />
+      <text x="10" y="16" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500">⚡ FastAPI</text>
+
+      <!-- Python -->
+      <rect x="95" y="0" width="85" height="24" rx="6" fill="#1E293B" fill-opacity="0.6" />
+      <text x="105" y="16" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500">🐍 Python</text>
+
+      <!-- Scikit-Learn -->
+      <rect x="190" y="0" width="105" height="24" rx="6" fill="#1E293B" fill-opacity="0.6" />
+      <text x="200" y="16" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500">🧠 Scikit-Learn</text>
+
+      <!-- React + Vite -->
+      <rect x="305" y="0" width="105" height="24" rx="6" fill="#1E293B" fill-opacity="0.6" />
+      <text x="315" y="16" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500">⚛️ React + Vite</text>
+
+      <!-- TypeScript -->
+      <rect x="420" y="0" width="100" height="24" rx="6" fill="#1E293B" fill-opacity="0.6" />
+      <text x="430" y="16" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500">📘 TypeScript</text>
+
+      <!-- Tailwind CSS -->
+      <rect x="530" y="0" width="100" height="24" rx="6" fill="#1E293B" fill-opacity="0.6" />
+      <text x="540" y="16" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500">🎨 Tailwind CSS</text>
+    </g>
+
+    <!-- India Helpline 1930 Tag -->
+    <g transform="translate(860, 12)">
+      <rect x="0" y="0" width="170" height="24" rx="6" fill="#7F1D1D" fill-opacity="0.4" stroke="#DC2626" stroke-opacity="0.5" stroke-width="0.8" />
+      <text x="10" y="16" fill="#FCA5A5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">🚨 India Cyber Helpline: 1930</text>
+    </g>
+  </g>
+</svg>
