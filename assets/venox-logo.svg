@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000" fill="none">
+  <defs>
+    <!-- Glow Filters -->
+    <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="intenseGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="neonCyanToIndigo" x1="100" y1="100" x2="900" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00F5FF" />
+      <stop offset="45%" stop-color="#06B6D4" />
+      <stop offset="75%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+
+    <linearGradient id="cyberGreenCyan" x1="200" y1="200" x2="800" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00FFA3" />
+      <stop offset="50%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+
+    <linearGradient id="darkRingBg" x1="200" y1="100" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F172A" stop-opacity="0.95" />
+      <stop offset="50%" stop-color="#090E1E" stop-opacity="0.98" />
+      <stop offset="100%" stop-color="#030712" stop-opacity="0.95" />
+    </linearGradient>
+
+    <linearGradient id="metalSilver" x1="200" y1="200" x2="800" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#CBD5E1" />
+      <stop offset="70%" stop-color="#64748B" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+
+    <radialGradient id="centerCoreGlow" cx="500" cy="500" r="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.25" />
+      <stop offset="40%" stop-color="#6366F1" stop-opacity="0.12" />
+      <stop offset="70%" stop-color="#0F172A" stop-opacity="0.85" />
+      <stop offset="95%" stop-color="#080D1B" stop-opacity="0.98" />
+      <stop offset="100%" stop-color="#080D1B" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Big Circular Base (Transparent Background Around Circle) -->
+  <circle cx="500" cy="500" r="470" fill="url(#centerCoreGlow)" />
+  <circle cx="500" cy="500" r="468" stroke="url(#neonCyanToIndigo)" stroke-width="4" stroke-opacity="0.5" filter="url(#cyanGlow)" />
+
+  <!-- Outer Orbital Dashed Circuit Ring -->
+  <circle cx="500" cy="500" r="450" stroke="#00F5FF" stroke-width="2.5" stroke-dasharray="14 10 30 10 6 10" stroke-opacity="0.75" />
+  <circle cx="500" cy="500" r="432" stroke="#6366F1" stroke-width="1.8" stroke-dasharray="8 14 24 14" stroke-opacity="0.6" />
+
+  <!-- Outer Cardinal Cyber Notches -->
+  <path d="M500 24 L500 52 M500 948 L500 976 M24 500 L52 500 M948 500 L976 500" stroke="#00F5FF" stroke-width="5" stroke-linecap="round" filter="url(#cyanGlow)" />
+  <circle cx="500" cy="24" r="5" fill="#00FFA3" filter="url(#cyanGlow)" />
+  <circle cx="500" cy="976" r="5" fill="#00FFA3" filter="url(#cyanGlow)" />
+  <circle cx="24" cy="500" r="5" fill="#00FFA3" filter="url(#cyanGlow)" />
+  <circle cx="976" cy="500" r="5" fill="#00FFA3" filter="url(#cyanGlow)" />
+
+  <!-- Diagonal Tech Pointer Ticks -->
+  <path d="M164 164 L184 184 M836 164 L816 184 M164 836 L184 816 M836 836 L816 816" stroke="#6366F1" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Main Solid Circular Shield Ring Body -->
+  <circle cx="500" cy="500" r="390" fill="url(#darkRingBg)" stroke="url(#neonCyanToIndigo)" stroke-width="6" filter="url(#cyanGlow)" />
+  <circle cx="500" cy="500" r="375" stroke="#1E293B" stroke-width="2" />
+
+  <!-- Cyber Honeycomb & Node Connectors (Left & Right) -->
+  <g opacity="0.45" stroke="#06B6D4" stroke-width="1.5">
+    <!-- Left circuit lines -->
+    <path d="M220 400 L270 400 L300 430 L350 430" fill="none" />
+    <circle cx="220" cy="400" r="3.5" fill="#00FFA3" />
+    <circle cx="350" cy="430" r="3.5" fill="#00F5FF" />
+    <path d="M210 500 L260 500 L290 470 L340 470" fill="none" />
+    <circle cx="210" cy="500" r="3.5" fill="#00FFA3" />
+    <circle cx="340" cy="470" r="3.5" fill="#00F5FF" />
+    <!-- Right circuit lines -->
+    <path d="M780 400 L730 400 L700 430 L650 430" fill="none" />
+    <circle cx="780" cy="400" r="3.5" fill="#00FFA3" />
+    <circle cx="650" cy="430" r="3.5" fill="#00F5FF" />
+    <path d="M790 500 L740 500 L710 470 L660 470" fill="none" />
+    <circle cx="790" cy="500" r="3.5" fill="#00FFA3" />
+    <circle cx="660" cy="470" r="3.5" fill="#00F5FF" />
+  </g>
+
+  <!-- INNER SHIELD / CYBER CREST EMBLEM -->
+  <path d="M500 190 L680 270 L640 560 L500 700 L360 560 L320 270 Z" 
+        fill="#0B132B" 
+        stroke="url(#neonCyanToIndigo)" 
+        stroke-width="5" 
+        stroke-linejoin="round"
+        filter="url(#cyanGlow)" />
+
+  <path d="M500 215 L650 285 L615 540 L500 665 L385 540 L350 285 Z" 
+        fill="#070C1A" 
+        stroke="#1E293B" 
+        stroke-width="2.5" 
+        stroke-linejoin="round" />
+
+  <!-- DYNAMIC CENTRAL VENOMOUS 'V' & 'X' EMBLEM -->
+  <!-- Left Wing of V / Primary Slash -->
+  <path d="M360 300 L440 300 L500 520 L455 520 Z" 
+        fill="url(#neonCyanToIndigo)" 
+        filter="url(#cyanGlow)" />
+
+  <!-- Right Wing of V / Secondary Slash -->
+  <path d="M640 300 L560 300 L500 520 L545 520 Z" 
+        fill="url(#neonCyanToIndigo)" 
+        filter="url(#cyanGlow)" />
+
+  <!-- Central Sharp Venom Apex of V -->
+  <path d="M500 595 L460 480 L540 480 Z" 
+        fill="#00F5FF" 
+        filter="url(#intenseGlow)" />
+
+  <!-- Aggressive Cyber 'X' Cross Bars (Intersecting through the V) -->
+  <path d="M400 370 L600 540 L575 565 L375 395 Z" 
+        fill="url(#cyberGreenCyan)" 
+        opacity="0.9" />
+  <path d="M600 370 L400 540 L425 565 L625 395 Z" 
+        fill="url(#cyberGreenCyan)" 
+        opacity="0.9" />
+
+  <!-- Central Cyber Core Diamond Node -->
+  <polygon points="500,430 535,465 500,500 465,465" 
+           fill="#FFFFFF" 
+           stroke="#00F5FF" 
+           stroke-width="4" 
+           filter="url(#intenseGlow)" />
+  <circle cx="500" cy="465" r="7" fill="#00FFA3" filter="url(#intenseGlow)" />
+
+  <!-- Dynamic SafePulse Heartbeat Wave across center -->
+  <path d="M430 465 L460 465 L480 435 L500 495 L520 445 L535 465 L570 465" 
+        stroke="#00FFA3" 
+        stroke-width="4" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        filter="url(#cyanGlow)" />
+
+  <!-- Top Cyber Crown Dots -->
+  <circle cx="500" cy="245" r="4.5" fill="#00F5FF" filter="url(#cyanGlow)" />
+  <circle cx="465" cy="255" r="3.5" fill="#6366F1" />
+  <circle cx="535" cy="255" r="3.5" fill="#6366F1" />
+
+  <!-- TYPOGRAPHY: BOLD "VENOX" -->
+  <g filter="url(#intenseGlow)">
+    <text x="500" y="785" 
+          text-anchor="middle" 
+          font-family="'Segoe UI', 'Impact', 'Arial Black', sans-serif" 
+          font-size="82" 
+          font-weight="900" 
+          letter-spacing="14" 
+          fill="url(#metalSilver)">
+      VENOX
+    </text>
+  </g>
+  <text x="500" y="785" 
+        text-anchor="middle" 
+        font-family="'Segoe UI', 'Impact', 'Arial Black', sans-serif" 
+        font-size="82" 
+        font-weight="900" 
+        letter-spacing="14" 
+        fill="#FFFFFF">
+    VENOX
+  </text>
+
+  <!-- Cyan Neon Inner Stroke for "VENOX" -->
+  <text x="500" y="785" 
+        text-anchor="middle" 
+        font-family="'Segoe UI', 'Impact', 'Arial Black', sans-serif" 
+        font-size="82" 
+        font-weight="900" 
+        letter-spacing="14" 
+        fill="none" 
+        stroke="url(#neonCyanToIndigo)" 
+        stroke-width="2.5">
+    VENOX
+  </text>
+
+  <!-- SUBTITLE BANNER / BADGE -->
+  <rect x="330" y="815" width="340" height="34" rx="17" fill="#0F172A" stroke="#00F5FF" stroke-width="1.8" filter="url(#cyanGlow)" />
+  <text x="500" y="838" 
+        text-anchor="middle" 
+        font-family="'Segoe UI', 'Arial', sans-serif" 
+        font-size="14.5" 
+        font-weight="800" 
+        letter-spacing="5" 
+        fill="#22D3EE">
+    CYBERSECURITY
+  </text>
+
+  <!-- Lower Orbital Tech Arc -->
+  <path d="M300 875 C360 910 430 925 500 925 C570 925 640 910 700 875" 
+        stroke="url(#neonCyanToIndigo)" 
+        stroke-width="3" 
+        stroke-linecap="round" 
+        stroke-dasharray="16 8 32 8" 
+        filter="url(#cyanGlow)" />
+  
+  <circle cx="500" cy="925" r="4" fill="#00FFA3" filter="url(#cyanGlow)" />
+</svg>
