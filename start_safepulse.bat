@@ -15,8 +15,9 @@ start "SafePulse AI - Frontend (5173)" cmd /k "cd /d "%~dp0frontend" && npm.cmd 
 
 echo.
 echo Both servers launched!
-echo Backend:  http://127.0.0.1:8000/docs
-echo Frontend: http://127.0.0.1:5173
+echo Backend:    http://127.0.0.1:8000/docs
+echo Frontend:   http://127.0.0.1:5173
+echo Public URL: Run 'start_tunnel.bat' for instant Cloudflare HTTPS Tunnel
 echo.
 echo Press any key to close this launcher window (keep the other 2 windows open).
 pause >nul

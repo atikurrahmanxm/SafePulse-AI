@@ -55,6 +55,10 @@ backend/.venv/
 env/
 ENV/
 
+# Executables & Tunnels
+cloudflared.exe
+*.exe
+
 # OS & Editor artifacts
 .DS_Store
 Thumbs.db
