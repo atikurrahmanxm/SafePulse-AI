@@ -8,6 +8,10 @@ import {
   Info,
   Link2,
   ShieldAlert,
+  Copy,
+  Check,
+  Share2,
+  MessageSquare,
 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { apiRequest, ApiError, downloadPdfReport } from "../lib/api";
@@ -77,6 +81,7 @@ export function UrlScannerPage() {
   const [result, setResult] = useState<UrlScanResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [pdfLoading, setPdfLoading] = useState(false);
+  const [copiedWarning, setCopiedWarning] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -139,6 +144,31 @@ export function UrlScannerPage() {
     } finally {
       setPdfLoading(false);
     }
+  };
+
+  const getStaffWarningMessage = () => {
+    if (!result) return "";
+    const urlClean = result.submitted_url || result.normalized_host;
+
+    if (language === "bn") {
+      return `⚠️ *জরুরি সাইবার সতর্কতা (SafePulse AI)* ⚠️\n\nসাবধান! দোকানে এই মাত্র একটি বিপজ্জনক/সন্দেহজনক লিংক ধরা পড়েছে:\n"${urlClean}"\n🚨 *সতর্কতা নির্দেশ:* দোকানের কেউ এই লিঙ্কে ভুলেও ক্লিক করবেন না বা ব্রাউজারে খুলবেন না। কোনো পাসওয়ার্ড বা UPI পিন দেবেন না।\n\n— SafePulse AI SME Protection`;
+    }
+    return `⚠️ *URGENT SECURITY ALERT (SafePulse AI)* ⚠️\n\nWarning! A suspicious/malicious link was just detected at our counter:\n"${urlClean}"\n🚨 *ACTION REQUIRED:* Do NOT click or open this link. Do NOT enter any passwords or UPI PINs.\n\n— SafePulse AI SME Protection`;
+  };
+
+  const handleCopyStaffWarning = async () => {
+    try {
+      await navigator.clipboard.writeText(getStaffWarningMessage());
+      setCopiedWarning(true);
+      setTimeout(() => setCopiedWarning(false), 2500);
+    } catch {
+      // Fallback
+    }
+  };
+
+  const getWhatsAppShareUrl = () => {
+    const msg = getStaffWarningMessage();
+    return `https://wa.me/?text=${encodeURIComponent(msg)}`;
   };
 
   return (
@@ -317,6 +347,61 @@ export function UrlScannerPage() {
                   <div className="font-mono text-[11px] text-[#06B6D4]">{result.reputation_source}</div>
                 </div>
               </div>
+
+              {/* Staff WhatsApp Emergency Alert */}
+              {result.risk_score >= 30 && (
+                <div className="rounded-xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/30 via-[#10182B] to-[#10182B] p-3.5 text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#25D366]/20 text-[#25D366]">
+                      <MessageSquare className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <div className="font-semibold text-emerald-300">
+                        {language === "bn" ? "দোকানের কর্মচারীদের WhatsApp সতর্কবার্তা" : "Staff WhatsApp Alert"}
+                      </div>
+                      <div className="text-[10px] text-slate-400">
+                        {language === "bn" ? "কাউন্টার স্টাফদের দ্রুত সতর্ক করতে" : "Alert counter staff instantly"}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-2.5 flex flex-wrap gap-2">
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="secondary"
+                      onClick={handleCopyStaffWarning}
+                      className="border-emerald-500/40 bg-emerald-500/10 text-emerald-200 hover:bg-emerald-500/20"
+                    >
+                      {copiedWarning ? (
+                        <>
+                          <Check className="h-3.5 w-3.5 text-emerald-400" aria-hidden="true" />
+                          <span>{language === "bn" ? "কপি হয়েছে!" : "Copied!"}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="h-3.5 w-3.5" aria-hidden="true" />
+                          <span>{language === "bn" ? "Copy Warning" : "Copy Warning"}</span>
+                        </>
+                      )}
+                    </Button>
+
+                    <a
+                      href={getWhatsAppShareUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-[#25D366] px-2.5 py-1 text-xs font-semibold text-black transition-opacity hover:opacity-90"
+                    >
+                      <Share2 className="h-3 w-3" aria-hidden="true" />
+                      <span>{language === "bn" ? "WhatsApp শেয়ার" : "Share"}</span>
+                    </a>
+                  </div>
+
+                  <div className="mt-2.5 rounded-lg border border-slate-800 bg-[#080D1B] p-2.5 font-mono text-[10px] leading-relaxed text-slate-300 whitespace-pre-line">
+                    {getStaffWarningMessage()}
+                  </div>
+                </div>
+              )}
 
               <div className="rounded-xl border border-slate-800 bg-[#10182B] p-4 text-xs">
                 <div className="mb-2 font-semibold text-slate-200">DNS & Email Authentication</div>

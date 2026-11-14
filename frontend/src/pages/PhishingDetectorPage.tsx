@@ -9,6 +9,10 @@ import {
   FileSearch,
   FlaskConical,
   ShieldCheck,
+  Copy,
+  Check,
+  Share2,
+  MessageSquare,
 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { apiRequest, ApiError, downloadPdfReport } from "../lib/api";
@@ -153,6 +157,7 @@ export function PhishingDetectorPage() {
   const [evalReport, setEvalReport] = useState<ModelEvalReport | null>(null);
   const [loading, setLoading] = useState(false);
   const [pdfLoading, setPdfLoading] = useState(false);
+  const [copiedWarning, setCopiedWarning] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -241,6 +246,32 @@ export function PhishingDetectorPage() {
     } finally {
       setPdfLoading(false);
     }
+  };
+
+  const getStaffWarningMessage = () => {
+    if (!result) return "";
+    const sampleSnippet = (result.raw_message || "").trim().replace(/\s+/g, " ").slice(0, 90);
+    const snippetClean = sampleSnippet ? `\n"${sampleSnippet}..."\n` : "";
+
+    if (language === "bn") {
+      return `⚠️ *জরুরি সাইবার সতর্কতা (SafePulse AI)* ⚠️\n\nসাবধান! আমাদের দোকানে এই মাত্র একটি সন্দেহজনক/ভুয়া মেসেজ এসেছে:${snippetClean}\n🚨 *সতর্কতা নির্দেশ:* দোকানের কেউ এই লিঙ্কে ক্লিক করবেন না বা কাউকে ওটিপি (OTP) ও UPI PIN দেবেন না। কোনো জিজ্ঞাসা থাকলে সরাসরি ম্যানেজারকে জানান।\n\n— SafePulse AI SME Protection`;
+    }
+    return `⚠️ *URGENT SECURITY ALERT (SafePulse AI)* ⚠️\n\nWarning! A suspicious phishing/scam message was just detected at our counter:${snippetClean}\n🚨 *ACTION REQUIRED:* Do NOT click any links, do NOT share any OTP or UPI PIN. Report immediately to the manager.\n\n— SafePulse AI SME Protection`;
+  };
+
+  const handleCopyStaffWarning = async () => {
+    try {
+      await navigator.clipboard.writeText(getStaffWarningMessage());
+      setCopiedWarning(true);
+      setTimeout(() => setCopiedWarning(false), 2500);
+    } catch {
+      // Fallback
+    }
+  };
+
+  const getWhatsAppShareUrl = () => {
+    const msg = getStaffWarningMessage();
+    return `https://wa.me/?text=${encodeURIComponent(msg)}`;
   };
 
   return (
@@ -506,6 +537,72 @@ export function PhishingDetectorPage() {
                         : "No strong phishing cues detected, though you should always confirm banking or login requests directly."}
                     </p>
                   </div>
+
+                  {/* Staff WhatsApp Emergency Alert (One-Click Warning for Shop Staff) */}
+                  {result.risk_score >= 30 && (
+                    <div className="rounded-xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/30 via-[#10182B] to-[#10182B] p-4 text-xs">
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <div className="flex items-center gap-2.5">
+                          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#25D366]/20 text-[#25D366]">
+                            <MessageSquare className="h-4 w-4" aria-hidden="true" />
+                          </span>
+                          <div>
+                            <div className="font-semibold text-emerald-300">
+                              {language === "bn"
+                                ? "দোকানের কর্মচারীদের WhatsApp সতর্কবার্তা"
+                                : "Staff WhatsApp Warning Alert"}
+                            </div>
+                            <div className="text-[11px] text-slate-400">
+                              {language === "bn"
+                                ? "কাউন্টারের কর্মচারীদের সতর্ক করতে এক ক্লিকে মেসেজ কপি বা সরাসরি শেয়ার করুন"
+                                : "Instantly alert shop counter staff so nobody clicks the link or shares PIN"}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-wrap items-center gap-2">
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant="secondary"
+                            onClick={handleCopyStaffWarning}
+                            className="border-emerald-500/40 bg-emerald-500/10 text-emerald-200 hover:bg-emerald-500/20"
+                          >
+                            {copiedWarning ? (
+                              <>
+                                <Check className="h-3.5 w-3.5 text-emerald-400" aria-hidden="true" />
+                                <span>{language === "bn" ? "কপি হয়েছে!" : "Copied!"}</span>
+                              </>
+                            ) : (
+                              <>
+                                <Copy className="h-3.5 w-3.5" aria-hidden="true" />
+                                <span>
+                                  {language === "bn"
+                                    ? "Copy Warning for Staff"
+                                    : "Copy Warning for Staff WhatsApp"}
+                                </span>
+                              </>
+                            )}
+                          </Button>
+
+                          <a
+                            href={getWhatsAppShareUrl()}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 rounded-lg bg-[#25D366] px-3 py-1.5 text-xs font-semibold text-black transition-opacity hover:opacity-90"
+                          >
+                            <Share2 className="h-3.5 w-3.5" aria-hidden="true" />
+                            <span>{language === "bn" ? "WhatsApp এ পাঠান" : "Share to WhatsApp"}</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      {/* Live Message Preview Box */}
+                      <div className="mt-3 rounded-lg border border-slate-800 bg-[#080D1B] p-3 font-mono text-[11px] leading-relaxed text-slate-300 whitespace-pre-line">
+                        {getStaffWarningMessage()}
+                      </div>
+                    </div>
+                  )}
 
                   <div>
                     <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
